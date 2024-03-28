@@ -248,6 +248,7 @@ export class Utility {
     const pageName = document.querySelectorAll('[page-name]').item(0)?.getAttribute('page-name') || ''
     setTimeout(() => {
       let tours = this.storageService.getItem('tours') || [];
+      debugger
       const filteredTour = tours?.find(tour => tour?.page?.name == pageName)
       if (filteredTour?.status != 'ACTIVE' || (!['unknown', 'NONE'].includes(filteredTour?.special_status) && !ignoreUserStatus)) return
       introJs('.theme-wrapper').setOptions({
