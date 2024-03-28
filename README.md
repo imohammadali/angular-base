@@ -4,7 +4,7 @@
 First, run these codes in terminal for start emp base panel frontend:
 
 ```
-npm i 
+npm install
 npm start
 ```
 Open [http://localhost:4200](http://localhost:4200) with your browser to see the result.
@@ -46,14 +46,15 @@ Open [http://localhost:4200](http://localhost:4200) with your browser to see the
 ### 📦 Important Commands
 
 ```bash
-$ pnpm start
+$ npm start
+$ npm test
 ```
 
 ### 🌵 Branches
 
 We use an agile continuous integration methodology, so new versions are frequently updated and development is really fast.
 
-1. **`v2`** is the development branch.
+1. **`main`** is the development branch.
 
 
 ### 📓 Pre-Requisites

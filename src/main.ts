@@ -17,11 +17,7 @@ if (environment.production) {
   enableProdMode();
   if (window) {
     if (window['console']) {
-      console.info(`%c    ________  _______
-   / ____/  |/  / __ \\
-  / __/ / /|_/ / /_/ /
- / /___/ /  / / ____/
-/_____/_/  /_/_/%c Version: ${environment.versions.app}, Build Number: ${environment.versions.build}`, "font-size: 14px;", "")
+      console.info(`test Version: ${environment.versions.app}, Build Number: ${environment.versions.build}`, "font-size: 14px;", "")
       let methods = ['dir', 'dirxml', 'trace', 'profile', 'log', 'warning', 'warn', 'error', 'assert', 'debug'];
       methods.forEach((name) => {
         window['console'][name] = function () { };
@@ -30,11 +26,7 @@ if (environment.production) {
 
   }
 } else {
-  console.info(`%c    ________  _______
-   / ____/  |/  / __ \\
-  / __/ / /|_/ / /_/ /
- / /___/ /  / / ____/
-/_____/_/  /_/_/%c Version: ${environment.versions.app}, Build Number: ${environment.versions.build}`, "font-size: 14px;", "")
+  console.info(`test Version: ${environment.versions.app}, Build Number: ${environment.versions.build}`, "font-size: 14px;", "")
 }
 
 platformBrowserDynamic()
