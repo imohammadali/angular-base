@@ -1,0 +1,49 @@
+
+@mixin overlay-panel() {
+  .p-overlaypanel {
+    background: var(--other-body_background-color);
+    color: var(--text-primary-color);
+    border: 0 none;
+    border-radius: 6px;
+    box-shadow: var(--box-shadow-2);
+    z-index: 999;
+    .p-overlaypanel-content {
+      padding: .5rem;
+    }
+    .p-overlaypanel-close {
+      background: var(--main-error-color);;
+      color: var(--text-primary-color);;
+      width: 2rem;
+      height: 2rem;
+      transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
+      border-radius: 50%;
+      position: absolute;
+      inset-block-start: -1rem;
+      inset-inline-start: -1rem;
+      &:enabled {
+        &:hover {
+          background: var(--text-primary-color);
+          color: var(--contained-hover-bg-error-color);
+        }
+      }
+    }
+    &:after {
+      border: solid transparent;
+      border-color: rgba(255, 255, 255, 0);
+      border-bottom-color: var(--other-body_background-color);
+    }
+    &:before {
+      border: solid transparent;
+      border-color: rgba(255, 255, 255, 0);
+      border-bottom-color: var(--other-body_background-color);
+    }
+    &.p-overlaypanel-flipped {
+      &:after {
+        border-top-color: var(--other-body_background-color);
+      }
+      &:before {
+        border-top-color: var(--other-body_background-color);
+      }
+    }
+  }
+}

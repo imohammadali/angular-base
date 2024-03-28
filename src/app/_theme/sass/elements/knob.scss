@@ -1,0 +1,10 @@
+
+@mixin knob() {
+
+  .p-knob {
+    &-text {
+      font-size: .8rem;
+      direction: ltr !important;
+    }
+  }
+}

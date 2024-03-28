@@ -1,0 +1,238 @@
+{
+  "notify": {
+    "success": {
+      "title": "{{ operation.title }} {{ entity }}",
+      "message": "{{ name }} با موفقیت {{ operation.message }}"
+    },
+    "operation-success": {
+      "title": "موفق",
+      "message": "عملیات با موفقیت انجام شد"
+    },
+    "request": {
+      "title": "منتظر بمانید",
+      "message": "درحال برقراری ارتباط"
+    },
+    "select-store": {
+      "title": "انتخاب فروشگاه",
+      "message": "شما باید ابتدا یک فروشگاه انتخاب کنید"
+    },
+    "login-required": {
+      "title": "نیازمند ورود",
+      "message": "شما باید ابتدا وارد حساب کاربریتان بشوید"
+    },
+    "login-error": {
+      "title": "ورود ناموفق",
+      "message": "نام کاربری یا کلمه عبور اشتباه است"
+    },
+    "no-file": {
+      "title": "فایل",
+      "message": "انتخاب فایل الزامی است"
+    },
+    "captcha-error": {
+      "title": "captcha نادرست",
+      "message": "حروف captcha نادرست است"
+    },
+    "super-user-error": {
+      "title": "خطای ورود به پنل",
+      "message": "شما نمی توانید به این پنل وارد شوید"
+    },
+    "login-success": {
+      "title": "ورود موفق",
+      "message": "شما با موفقیت وارد شدید"
+    },
+    "register-success": {
+      "title": "ثبت نام موفق",
+      "message": "شما با موفقیت ثبت نام کردید"
+    },
+    "reset-pass-success": {
+      "title": "تغییر رمز عبور موفق",
+      "message": "رمز عبور شما با موفقیت تغییر یافت"
+    },
+    "forget-pass-success": {
+      "title": "کد تایید با موفقیت ارسال شد",
+      "message": "کد بازیابی رمز عبور برای شما ارسال شد"
+    },
+    "forget-pass-error": {
+      "title": "کد تایید نادرست",
+      "message": "کد تایید وارد شده نادرست است."
+    },
+    "upload-type-error": {
+      "title": "خطا در نوع فایل",
+      "message": "\"{{ fileName }}\" قابل قبول نیست"
+    },
+    "upload-size-error": {
+      "title": "خطا در حجم فایل",
+      "message": "حجم \"{{ fileName }}\" بیش از محدودیت است"
+    },
+    "select-image-overlimit": {
+      "title": "انتخاب بیش از حد",
+      "message": "نمی توانید بیش از {{ countLimit }} تصویر انتخاب کنید"
+    },
+    "delete-submenus-first": {
+      "title": "حذف امکانپذیر نیست",
+      "message": "زیر منوها ابتدا باید حذف شوند"
+    },
+    "duplicate_parent_name": {
+      "title": "نام والد تکراری",
+      "message": "نام والد انتخابی تکراری است"
+    },
+    "duplicate_child_name": {
+      "title": "نام فرزند تکراری",
+      "message": "نام فرزند انتخابی تکراری است"
+    },
+    "wrong-file": {
+      "title": "مشکلی پیش آمد",
+      "message": "فایل مورد نظر مشکل داشت"
+    },
+    "read": "خوانده",
+    "unread": "خوانده نشده",
+    "list": "لیست اعلانات",
+    "sender": "ارسال کننده",
+    "message": "پیام",
+    "status": "وضعیت",
+    "created": "تاریخ ایجاد",
+    "sched": "تاریخ زمانبندی شده",
+    "date": "تاریخ",
+    "is_read": "خوانده شده",
+    "receiverNotif": "اعلانات دریافت شده",
+    "senderNotif": "اعلانات ارسال شده",
+    "receiver": "گیرنده",
+    "mark-as-read": "خواندم"
+  },
+  "breadcrumb": {
+  },
+  "sidebar": {
+  },
+  "navbar": {
+    "exit": "خروج از حساب کاربری",
+    "reset_pass": "تغییر رمز عبور",
+    "profile": "حساب کاربری",
+    "notifications": "اعلانات",
+    "all_read": "همه را خوانده ام",
+    "empty_notifications": "هیچ اعلانی وجود ندارد",
+    "username": "نام کاربری"
+  },
+  "table": {
+    "column": {
+    }
+  },
+  "auth": {
+    "username": "نام کاربری",
+    "password": "کلمه عبور",
+    "confirm_password": "تکرار کلمه عبور",
+    "current_password": "کلمه عبور کنونی",
+    "new_password": "کلمه عبور جدید",
+    "sign_in": "ورود به حساب کاربری",
+    "captcha": "اعداد تصویر",
+    "forget_password": "رمزعبور خود را فراموش کرده اید؟",
+    "sign-in-userpass": "ورود با نام کاربری و رمز عبور",
+    "sign-in-oneTimePass": "ورود با رمز یکبار مصرف",
+    "change_password": "تغییر کلمه عبور",
+    "sms": "دریافت رمز یکبار مصرف از طریق پیامک ",
+    "email": "دریافت رمز یکبار مصرف از طریق ایمیل ",
+    "login": "ورود",
+    "USER_INVALID": "User is Invalid",
+    "profile": "حساب کاربری",
+    "fullname": "نام و نام خانوادگی",
+    "cellphone": "شماره موبایل",
+    "email_address": "ایمیل",
+    "send_code": "ارسال کد",
+    "otp_code": "کد تایید"
+  },
+  "dashboard": {
+    "title": "داشبورد"
+  },
+  "feedback": {
+    "required": "این فیلد الزامی است",
+    "email": "ایمیل صحیح نیست",
+    "minLength": "حداقل {{ length }} کاراکتر مجاز است",
+    "maxLength": "حداکثر {{ length }} کاراکتر مجاز است",
+    "min": "حداقل ترین عدد {{min}} است",
+    "max": "حداکثر ترین عدد {{max}} است",
+    "done_successfully": "با موفقیت انجام شد",
+    "created_successfully": "با موفقیت ایجاد شد",
+    "updated_successfully": "با موفقیت بروزرسانی شد",
+    "deleted_successfully": "با موفقیت حذف شد",
+    "uploaded_successfully": "با موفقیت آپلود شد",
+    "sent_successfully": "با موفقیت ارسال شد",
+    "enabled_successfully": "با موفقیت فعال شد",
+    "disabled_successfully": "با موفقیت غیر فعال شد",
+    "done_successfully_entity": "{{ entity }} با موفقیت انجام شد",
+    "created_successfully_entity": "{{ entity }} با موفقیت ایجاد شد",
+    "updated_successfully_entity": "{{ entity }} با موفقیت بروزرسانی شد",
+    "deleted_successfully_entity": "{{ entity }} با موفقیت حذف شد",
+    "uploaded_successfully_entity": "{{ entity }} با موفقیت آپلود شد",
+    "sent_successfully_entity": "{{ entity }} با موفقیت ارسال شد",
+    "enabled_successfully_entity": "{{ entity }} با موفقیت فعال شد",
+    "disabled_successfully_entity": "{{ entity }} با موفقیت غیر فعال شد",
+    "warn_delete": "آیا میخواهید این مورد را حذف کنید؟",
+    "are_you_sure": "آیا اطمینان دارید؟",
+    "login_success": "با موفقیت وارد شدید",
+    "login_error": "نام کاربری یا کلمه عبور اشتباه است",
+    "match_error_password": "کلمه عبور با تکرار کلمه عبور یکسان نیست",
+    "no_result_found": "چیزی برای نمایش موجود نیست",
+    "Send to": "کد با موفقیت ارسال شد",
+    "unknown_error": "خطای نامشخص",
+    "upload_failed": "فایل آپلود نشد",
+    "error_500": "خطای سرور",
+    "yes": "بله",
+    "no": "خیر",
+    "pattern": "مقدار وارد شده صحیح نیست",
+    "least": "حداقل {{ least }} کاراکتر مورد نیاز می‌باشد",
+    "notmatch": "رمز عبور مطابقت ندارد",
+    "number": "عدد وارد شده صحیح نیست",
+    "product_variant_error": "حداقل یک نوع را باید وارد کنید",
+    "low_number": "حداقل از  عدد {{ num }} مجاز می باشد",
+    "big_number": "حداکثر تا عدد {{ num }} مجاز می باشد",
+    "duplicateUsername": "نام کاربری تکراری است",
+    "duplicate": "مقدار وارد شده تکراری است",
+    "old_pass": "رمز کنونی نادرست است",
+    "wrong_captcha": "اعداد وارد شده نادرست است",
+    "low_password": "پسورد باید دارای حروف کوچک باشد",
+    "num_password": "پسورد باید دارای رقم باشد",
+    "up_password": "پسورد باید دارای حروف بزرگ باشد",
+    "len_password": "پسورد باید بیشتر از ۸ کاراکتر باشد",
+    "first_select_page": "ابتدا فیلد صفحه را انتخاب کنید",
+    "list_length_required": "اضافه کردن یک مورد به لیست اجباری است",
+    "upload_file_required": "یک فایل برای آپلود انتخاب کنید",
+    "first_select_field": "ابتذا فیلد {{field}} رو کامل کنید",
+    "sample_email": "مثال: test@gmail.com",
+    "sample_cellphone": "مثال: 09120001234",
+    "warning": "هشدار",
+    "successful": "موفقیت آمیز",
+    "done": "انجام شد",
+    "not_done": "انجام شد",
+    "failed": "انجام نشده",
+    "failed2": "انجام نشد",
+    "access_error": "خطای دسترسی",
+    "today": "امروز",
+    "next_day": "روز بعد",
+    "next_week": "هفته بعد",
+    "next_month": "ماه بعد",
+    "previous_day": "روز گذشته",
+    "previous_week": "هفته گذشته",
+    "previous_month": "ماه گذشته",
+    "loading": "در حال بارگذاری"
+  },
+  "forms": {
+    "create": "ایجاد",
+    "save": "ذخیره",
+    "edit": "ویرایش",
+    "cancel": "لغو",
+    "back": "بازگشت",
+    "delete": "حذف",
+    "change": "تغییر",
+    "search": "جستجو",
+    "search_to": "جستجو بر اساس {{field}}",
+    "sample-file": "دانلود فایل نمونه",
+    "submit": "تایید",
+    "add": "افزودن",
+    "close": "بستن",
+    "show": "مشاهده",
+    "from_date": "از تاریخ",
+    "to_date": "تا تاریخ",
+    "filter": "فیلتر",
+    "download": "دانلود",
+    "send": "ارسال"
+  }
+}

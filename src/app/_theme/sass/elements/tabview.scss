@@ -1,0 +1,84 @@
+
+@mixin tabview() {
+
+  .p-tabview {
+    .p-tabview-nav {
+      background: var(--paper-bg-color);
+      border: 1px solid var(--other-divider-color);
+      border-width: 0 0 2px 0;
+      li {
+        margin-right: 0;
+        .p-tabview-nav-link {
+          border: solid var(--other-divider-color);
+          border-width: 0 0 2px 0;
+          border-color: transparent transparent var(--other-divider-color) transparent;
+          color: var(--text-secondary-color);
+          padding: 1.25rem;
+          font-size: var(--sub_title1-font-size);
+          font-weight: 600;
+          line-height: var(--sub_title1-font-height);
+          border-top-right-radius: 6px;
+          border-top-left-radius: 6px;
+          transition: box-shadow 0.2s;
+          margin: 0 0 -2px 0;
+          &:not(.p-disabled):focus {
+            outline: 0 none;
+            outline-offset: 0;
+            box-shadow: inset 0 0 0 0.2rem #BFDBFE;
+          }
+        }
+        &:not(.p-highlight):not(.p-disabled):hover {
+          .p-tabview-nav-link {
+            //background: #ffffff;
+            border-color: var(--other-outline_border-color);;
+            //color: var(--action-hover-color);
+          }
+        }
+        &.p-highlight {
+          .p-tabview-nav-link {
+            border-color: var(--main-primary-color);
+            color: var(--main-primary-color);
+            animation: fadeIn;
+            animation-duration: .7s;
+          }
+        }
+      }
+    }
+    .p-tabview-left-icon {
+      margin-right: 0.5rem;
+    }
+    .p-tabview-right-icon {
+      margin-left: 0.5rem;
+    }
+    .p-tabview-close {
+      margin-left: 0.5rem;
+    }
+    .p-tabview-nav-btn {
+      &.p-link {
+        background: #ffffff;
+        color: #3B82F6;
+        width: 3rem;
+        box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+        border-radius: 0;
+        &:focus {
+          outline: 0 none;
+          outline-offset: 0;
+          box-shadow: inset 0 0 0 0.2rem #BFDBFE;
+        }
+      }
+    }
+    .p-tabview-panels {
+      background: var(--paper-bg-color);
+      padding: 1.25rem;
+      border: 0 none;
+      border-bottom-right-radius: 6px;
+      border-bottom-left-radius: 6px;
+      .p-tabview-panel {
+        animation: fadeInRight;
+        animation-duration: 300ms;
+      }
+
+    }
+  }
+
+}

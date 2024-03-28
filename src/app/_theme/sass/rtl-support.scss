@@ -1,0 +1,84 @@
+
+@mixin rtl-theme() {
+  &.rtl-theme {
+    font-family: var(--font-family);
+    * {
+      direction: rtl;
+      text-align: right;
+
+      ngx-codemirror {
+        * {
+          direction: ltr !important;
+          text-align: left !important;
+        }
+      }
+      .d2h-wrapper {
+        * {
+          direction: ltr !important;
+          text-align: left !important;
+        }
+        .d2h-file-side-diff {
+          position: relative;
+        }
+      }
+      highcharts-chart {
+        * {
+          direction: ltr !important;
+          text-align: left !important;
+        }
+      }
+
+      [class^="introjs-"], [class*=" introjs-"] {
+        * {
+          font-family: var(--font-family) !important;
+        }
+        .introjs-progressbar {
+          float: right !important;
+        }
+      }
+
+    }
+
+    .navbar .toggle-menu {
+      transform: rotate(180deg);
+    }
+
+    chevronrighticon, chevronlefticon, angledoublerighticon, angledoublelefticon, anglerighticon, anglelefticon {
+      transform: rotate(180deg);
+    }
+    .p-card {
+      animation: fadeInLeft !important;
+      animation-duration: .5s !important;
+    }
+    .p-tabview-panel {
+      animation: fadeInLeft !important;
+      animation-duration: 300ms !important;
+    }
+    .apexcharts-legend {
+      &-marker {
+        margin: 0 .3rem;
+      }
+      &-text {
+        font-family: IRANSansX, serif !important;
+      }
+    }
+
+    .p-timepicker {
+      flex-direction: row;
+    }
+
+    .p-datepicker {
+      &-header {
+        direction: ltr;
+      }
+    }
+
+  }
+  &.ltr-theme {
+    * {
+      direction: ltr;
+      text-align: left;
+    }
+    font-family: var(--font-family);
+  }
+}

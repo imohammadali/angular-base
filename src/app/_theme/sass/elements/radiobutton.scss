@@ -1,0 +1,111 @@
+
+$radiobutton-type: 'primary', 'secondary', 'success', 'info', 'warning', 'error';
+$radiobutton-size: 'small', 'medium', 'large';
+
+@mixin radio-button() {
+  p-radiobutton {
+    margin: 0 .4rem;
+    padding: 1rem .2rem;
+    .p-radiobutton {
+      &-box {
+        background-color: var(--main-contrast-color);
+        border: 2px solid var(--main-primary-color);
+        width: 24px;
+        height: 24px;
+        color: #495057;
+        border-radius: 50%;
+      }
+      &-icon {
+        width: 12px;
+        height: 12px;
+        background-color: var(--main-primary-color);
+      }
+    }
+    label {
+      margin-inline-start: .8rem;
+      font-size: var(--body1-font-size);
+      font-weight: var(body1-font-weight);
+      line-height: var(body1-font-height);
+    }
+    @each $type in $radiobutton-type {
+      &.radiobutton-#{$type} {
+        .p-radiobutton {
+          &-box {
+            @if($type=='primary'){
+              border-color: var(--main-primary-color);
+            }
+            @if($type=='secondary'){
+              border-color: var(--main-secondary-color);
+            }
+            @if($type=='success'){
+              border-color: var(--main-success-color);
+            }
+            @if($type=='info'){
+              border-color: var(--main-info-color);
+            }
+            @if($type=='warning'){
+              border-color: var(--main-warning-color);
+            }
+            @if($type=='error'){
+              border-color: var(--main-error-color);
+            }
+          }
+          &-icon {
+            @if($type=='primary'){
+              background-color: var(--main-primary-color);
+            }
+            @if($type=='secondary'){
+              background-color: var(--main-secondary-color);
+            }
+            @if($type=='success'){
+              background-color: var(--main-success-color);
+            }
+            @if($type=='info'){
+              background-color: var(--main-info-color);
+            }
+            @if($type=='warning'){
+              background-color: var(--main-warning-color);
+            }
+            @if($type=='error'){
+              background-color: var(--main-error-color);
+            }
+          }
+        }
+      }
+    }
+    @each $size in $radiobutton-size {
+      &.radiobutton-#{$size} {
+        .p-radiobutton {
+          &-box {
+            @if($size=='small'){
+              width: 20px;
+              height: 20px;
+            }
+            @if($size=='medium'){
+              width: 24px;
+              height: 24px;
+            }
+            @if($size=='large'){
+              width: 28px;
+              height: 28px;
+            }
+          }
+          &-icon {
+            @if($size=='small'){
+              width: 10px;
+              height: 10px;
+            }
+            @if($size=='medium'){
+              width: 12px;
+              height: 12px;
+            }
+            @if($size=='large'){
+              width: 14px;
+              height: 14px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

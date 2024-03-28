@@ -1,0 +1,22 @@
+<ul class="list-box">
+  <ng-container *ngFor="let item of data$|async">
+    <li *ngIf="item?.meta?.is_hidden !== true">
+      <label>{{ item.label | translate: item?.meta?.labelParam||{} }}</label>
+      <ng-container [ngSwitch]="item?.meta?.typeValue">
+        <ng-template ngSwitchCase="badge">
+          <p-badge [styleClass]="item?.meta?.classValue||'badge-primary'" [value]="item?.value | translate"></p-badge>
+        </ng-template>
+        <ng-template ngSwitchCase="icon">
+          <i [class]="item?.meta?.classValue" [style]="'font-size:1.5rem;cursor:pointer; '+item?.meta?.styleValue" (click)="item?.meta?.onClick()"></i>
+        </ng-template>
+        <ng-template ngSwitchCase="button">
+          <button pButton pRipple class='btn btn-primary' (click)="item?.meta?.onClick()" [translate]="item.label"></button>
+        </ng-template>
+        <ng-template ngSwitchDefault>
+          <span>{{ item?.value | translate }}</span>
+        </ng-template>
+      </ng-container>
+    </li>
+  </ng-container>
+</ul>
+

@@ -1,0 +1,39 @@
+{
+  "/api/*": {
+    "target": "https://emp.mtnirancell.ir",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug",
+    "timeout": 250000
+  },
+  "/media/*": {
+    "target": {
+      "host": "127.0.0.1",
+      "protocol": "http",
+      "port": 8080
+    },
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug"
+  },
+  "/public/*": {
+    "target": {
+      "host": "127.0.0.1",
+      "protocol": "http",
+      "port": 8080
+    },
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug"
+  },
+  "/master/*": {
+    "target": {
+      "host": "127.0.0.1",
+      "protocol": "http",
+      "port": 8080
+    },
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug"
+  }
+}

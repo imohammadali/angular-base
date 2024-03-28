@@ -1,0 +1,13 @@
+
+$badge-type: 'primary', 'secondary', 'success', 'info', 'warning', 'error';
+$badge-size: 'small', 'medium', 'large';
+
+@mixin skeleton() {
+  .p-skeleton {
+    background-color: var(--outlined-resting-bg-secondary-color);
+    border-radius: 6px;
+  }
+  .p-skeleton:after {
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0));
+  }
+}

@@ -1,0 +1,179 @@
+<div class="row justify-content-center">
+  <div class="col-12" [formGroup]="formGroup" (keyup.enter)="submit()">
+    <div class="row flex-column">
+      <ng-container [ngTemplateOutlet]="form"></ng-container>
+    </div>
+  </div>
+</div>
+
+
+<ng-template #form>
+  <ng-container [ngSwitch]="(signInMethod$|async)?.method" [formGroup]="formGroup">
+    <ng-container *ngSwitchCase="methods.userPass">
+      <ng-container [ngTemplateOutlet]="username"></ng-container>
+      <ng-container [ngTemplateOutlet]="password"></ng-container>
+      <ng-container [ngTemplateOutlet]="captcha"></ng-container>
+      <ng-container [ngTemplateOutlet]="submitButton" [ngTemplateOutletContext]="{label: 'auth.sign_in', btnClass: 'btn-primary'}"></ng-container>
+      <div class="col">
+        <span class="field d-flex justify-content-between">
+          <button routerLink="/auth/sign-in" (click)="generateCaptcha()" [queryParams]="{'method': methods.forgetPass}" pRipple class="btn btn-text-info btn-large" translate="auth.forget_password">
+          </button>
+          <button routerLink="/auth/sign-in" (click)="generateCaptcha()"
+                  [queryParams]="{'method': methods.oneTimePass}"
+                  pRipple class="btn btn-text-secondary btn-large d-flex align-items-center">
+            <ng-container [ngSwitch]="(signInMethod$|async)?.method">
+              <span *ngSwitchCase="methods.oneTimePass">{{'auth.sign-in-userpass'|translate}}</span>
+              <span *ngSwitchCase="methods.userPass">{{'auth.sign-in-oneTimePass'|translate}}</span>
+              <span *ngSwitchDefault>{{'auth.sign-in-userpass'|translate}}</span>
+            </ng-container>
+            <i class="px-2 icon-angle-left" [class.icon-angle-right]="(language$|async)==='en'"></i>
+          </button>
+        </span>
+      </div>
+    </ng-container>
+    <ng-container *ngSwitchCase="methods.forgetPass">
+      <ng-container [ngTemplateOutlet]="username"></ng-container>
+      <ng-container [ngTemplateOutlet]="captcha"></ng-container>
+      <ng-container [ngTemplateOutlet]="submitButton" [ngTemplateOutletContext]="{label: 'auth.send_code', btnClass: 'btn-error'}"></ng-container>
+      <div class="col">
+        <span class="field d-flex justify-content-between">
+          <button routerLink="/auth/sign-in" (click)="generateCaptcha()"
+                  [queryParams]="{'method': methods.userPass }"
+                  pRipple class="btn btn-text-secondary btn-large d-flex align-items-center">
+            <ng-container [ngSwitch]="(signInMethod$|async)?.method">
+              <span *ngSwitchCase="methods.oneTimePass">{{'auth.sign-in-userpass'|translate}}</span>
+              <span *ngSwitchCase="methods.userPass">{{'auth.sign-in-oneTimePass'|translate}}</span>
+              <span *ngSwitchDefault>{{'auth.sign-in-userpass'|translate}}</span>
+            </ng-container>
+            <i class="px-2 icon-angle-left" [class.icon-angle-right]="(language$|async)==='en'"></i>
+          </button>
+        </span>
+      </div>
+    </ng-container>
+    <ng-container *ngSwitchCase="methods.oneTimePass">
+      <ng-container [ngTemplateOutlet]="username"></ng-container>
+      <ng-container [ngTemplateOutlet]="captcha"></ng-container>
+      <ng-container [ngTemplateOutlet]="submitButton" [ngTemplateOutletContext]="{label: 'auth.send_code', btnClass: 'btn-primary'}"></ng-container>
+      <div class="col">
+        <span class="field d-flex justify-content-between">
+          <button routerLink="/auth/sign-in" (click)="generateCaptcha()" [queryParams]="{'method': methods.forgetPass}" pRipple class="btn btn-text-info btn-large" translate="auth.forget_password">
+          </button>
+          <button routerLink="/auth/sign-in" (click)="generateCaptcha()"
+                  [queryParams]="{'method': methods.userPass }"
+                  pRipple class="btn btn-text-secondary btn-large d-flex align-items-center">
+            <ng-container [ngSwitch]="(signInMethod$|async)?.method">
+              <span *ngSwitchCase="methods.oneTimePass">{{'auth.sign-in-userpass'|translate}}</span>
+              <span *ngSwitchCase="methods.userPass">{{'auth.sign-in-oneTimePass'|translate}}</span>
+              <span *ngSwitchDefault>{{'auth.sign-in-userpass'|translate}}</span>
+            </ng-container>
+            <i class="px-2 icon-angle-left" [class.icon-angle-right]="(language$|async)==='en'"></i>
+          </button>
+        </span>
+      </div>
+    </ng-container>
+    <ng-container *ngSwitchCase="methods.otpLogin">
+      <ng-container [ngTemplateOutlet]="otp"></ng-container>
+      <ng-container [ngTemplateOutlet]="captcha"></ng-container>
+      <ng-container [ngTemplateOutlet]="submitButton" [ngTemplateOutletContext]="{label: 'auth.sign_in', btnClass: 'btn-primary'}"></ng-container>
+      <div class="col">
+        <span class="field d-flex justify-content-between">
+          <button routerLink="/auth/sign-in" (click)="generateCaptcha()" [queryParams]="{'method': methods.forgetPass}" pRipple class="btn btn-text-info btn-large" translate="auth.forget_password">
+          </button>
+          <button routerLink="/auth/sign-in" (click)="generateCaptcha()"
+                  [queryParams]="{'method': methods.userPass }"
+                  pRipple class="btn btn-text-secondary btn-large d-flex align-items-center">
+            <ng-container [ngSwitch]="(signInMethod$|async)?.method">
+              <span *ngSwitchCase="methods.oneTimePass">{{'auth.sign-in-userpass'|translate}}</span>
+              <span *ngSwitchCase="methods.userPass">{{'auth.sign-in-oneTimePass'|translate}}</span>
+              <span *ngSwitchDefault>{{'auth.sign-in-userpass'|translate}}</span>
+            </ng-container>
+            <i class="px-2 icon-angle-left" [class.icon-angle-right]="(language$|async)==='en'"></i>
+          </button>
+        </span>
+      </div>
+    </ng-container>
+    <ng-container *ngSwitchCase="methods.otpForgetPass">
+      <ng-container [ngTemplateOutlet]="otp"></ng-container>
+      <ng-container [ngTemplateOutlet]="captcha"></ng-container>
+      <ng-container [ngTemplateOutlet]="submitButton" [ngTemplateOutletContext]="{label: 'auth.change_password', btnClass: 'btn-primary'}"></ng-container>
+      <div class="col">
+        <span class="field d-flex justify-content-between">
+          <button routerLink="/auth/sign-in" (click)="generateCaptcha()" [queryParams]="{'method': methods.forgetPass}" pRipple class="btn btn-text-info btn-large" translate="auth.forget_password">
+          </button>
+          <button routerLink="/auth/sign-in" (click)="generateCaptcha()"
+                  [queryParams]="{'method': methods.userPass }"
+                  pRipple class="btn btn-text-secondary btn-large d-flex align-items-center">
+            <ng-container [ngSwitch]="(signInMethod$|async)?.method">
+              <span *ngSwitchCase="methods.oneTimePass">{{'auth.sign-in-userpass'|translate}}</span>
+              <span *ngSwitchCase="methods.userPass">{{'auth.sign-in-oneTimePass'|translate}}</span>
+              <span *ngSwitchDefault>{{'auth.sign-in-userpass'|translate}}</span>
+            </ng-container>
+            <i class="px-2 icon-angle-left" [class.icon-angle-right]="(language$|async)==='en'"></i>
+          </button>
+        </span>
+      </div>
+    </ng-container>
+  </ng-container>
+</ng-template>
+
+
+<ng-template #username>
+  <div class="col" [formGroup]="formGroup">
+    <span class="field p-float-label" [class.require-field]="hasValidator('username', formGroup)">
+      <input pInputText formControlName="username" pAutoFocus [autofocus]="true">
+      <label>{{ 'auth.username' | translate }}</label>
+    </span>
+    <p-message *ngIf="formGroup.get('username').hasError('required') && submitted" severity="error" [text]="'feedback.required'|translate"></p-message>
+  </div>
+</ng-template>
+<ng-template #password>
+  <div class="col" [formGroup]="formGroup">
+    <span class="field p-float-label position-relative" [class.require-field]="hasValidator('password', formGroup)">
+      <p-password [toggleMask]="true" [feedback]="false" formControlName="password"></p-password>
+      <label>{{ 'auth.password' | translate }}</label>
+    </span>
+    <p-message *ngIf="formGroup.get('password').hasError('required') && submitted" severity="error" [text]="'feedback.required'|translate"></p-message>
+    <p-message *ngIf="formGroup.get('password').hasError('minlength') && submitted" severity="error" [text]="'feedback.minLength'|translate: {length: 8}"></p-message>
+  </div>
+</ng-template>
+<ng-template #captcha>
+  <div class="col" [formGroup]="formGroup">
+    <span class="field p-float-label d-flex align-items-center" [class.require-field]="hasValidator('captcha_challenge', formGroup)">
+      <input pInputText formControlName="captcha_challenge">
+      <label>{{ 'auth.captcha' | translate }}</label>
+      <div (click)="generateCaptcha()" class="container-captcha">
+        <img width="150" [src]="captchaImage$|async"  alt="captcha imgage"/>
+      </div>
+      <i (click)="generateCaptcha()" class="icon-refresh"></i>
+    </span>
+    <p-message *ngIf="formGroup.get('captcha_challenge').hasError('required') && ([methods.otpForgetPass, methods.otpLogin].includes((signInMethod$|async)?.method) ? submitted_otp : submitted)" severity="error" [text]="'feedback.required'|translate"></p-message>
+    <span class="field" *ngIf="(signInMethod$|async)?.method === methods.oneTimePass">
+      <p-selectButton formControlName="is_email" [options]="[{label: 'auth.sms'|translate,value: false}, {label: 'auth.email'|translate,value: true}]"
+                      optionLabel="label" optionValue="value" (onChange)="generateCaptcha()"></p-selectButton>
+    </span>
+  </div>
+</ng-template>
+<ng-template #otp>
+  <div class="col" [formGroup]="formGroup_otp">
+    <span class="field p-float-label" [class.require-field]="hasValidator('code', formGroup_otp)">
+      <input pInputText formControlName="code" pAutoFocus [autofocus]="true">
+      <label>{{ 'auth.otp_code' | translate }}</label>
+    </span>
+    <p-message *ngIf="formGroup_otp.get('code').hasError('required') && submitted_otp" severity="error" [text]="'feedback.required'|translate"></p-message>
+    <p-tag icon="pi pi-clock" [value]="moment.utc((toExpireOTP|async) * 1000).format('mm:ss')"></p-tag>
+  </div>
+</ng-template>
+<ng-template #submitButton let-label=label let-btnClass=btnClass>
+  <div class="col">
+    <span class="field d-flex justify-content-end">
+      <button (click)="submit()" pRipple class="btn {{btnClass}} btn-large">
+        <ng-template [ngIf]="(showLoading$|async) === false" [ngIfElse]="spinner">
+          {{label|translate}}
+        </ng-template>
+        <ng-template #spinner>
+          <p-progressSpinner strokeWidth="4"></p-progressSpinner>
+        </ng-template>
+      </button>
+    </span>
+  </div>
+</ng-template>

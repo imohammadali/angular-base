@@ -1,0 +1,39 @@
+<ng-template [ngIf]="(loading$|async) === false" [ngIfElse]="skeleton">
+  <ng-container [ngSwitch]="column?.renderer">
+    <ng-container *ngSwitchCase="'boolean'">
+      <boolean-renderer [data]="data[column.field]"></boolean-renderer>
+    </ng-container>
+    <ng-container *ngSwitchCase="'text-color'">
+      <text-color-renderer [data]="data" [col]="column"></text-color-renderer>
+    </ng-container>
+    <ng-container *ngSwitchCase="'button'">
+      <button-renderer [col]="column" [data]="data" [setting]="setting"></button-renderer>
+    </ng-container>
+    <ng-container *ngSwitchCase="'date'">
+      <date-renderer [data]="data" [col]="column"></date-renderer>
+    </ng-container>
+    <ng-container *ngSwitchCase="'tag'">
+      <tag-renderer [data]="data" [col]="column"></tag-renderer>
+    </ng-container>
+    <ng-container *ngSwitchCase="'extra-link'">
+      <icon-renderer [data]="data" [col]="column" [setting]="setting"></icon-renderer>
+    </ng-container>
+    <ng-container *ngSwitchCase="'toggle'">
+      <toggle-renderer [data]="data" [col]="column" [setting]="setting"></toggle-renderer>
+    </ng-container>
+    <ng-container *ngSwitchCase="'actionButton'">
+      <action-button-renderer [data]="data" [col]="column" [setting]="setting" [index]="index"></action-button-renderer>
+    </ng-container>
+    <ng-container *ngSwitchCase="'link'">
+      <link-renderer [data]="data" [col]="column" [setting]="setting"></link-renderer>
+    </ng-container>
+    <ng-container *ngSwitchDefault>
+    <span class="column-default" [title]="data[column.field]?.toString() ? data[column.field] : '-'">
+      {{data[column.field]?.toString() ? data[column.field] : '-'}}
+    </span>
+    </ng-container>
+  </ng-container>
+</ng-template>
+<ng-template #skeleton>
+  <p-skeleton height="2rem"></p-skeleton>
+</ng-template>

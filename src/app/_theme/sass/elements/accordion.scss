@@ -1,0 +1,89 @@
+
+$accordion-type: 'primary', 'secondary', 'success', 'info', 'warning', 'error';
+
+@mixin accordion() {
+  p-accordion {
+    .p-accordion {
+      &-tab {
+        border-radius: 1rem;
+        margin-block-end: .5rem;
+        box-shadow: var(--box-shadow-3);
+        .p-accordion-header {
+          background-color: var(--main-secondary-color);
+          border-start-start-radius: 1rem;
+          border-start-end-radius: 1rem;
+          color: var(--main-contrast-color);
+          &-link {
+            padding: 1rem;
+            .p-accordion-toggle-icon {
+              margin-inline-end: .5rem;
+            }
+          }
+        }
+        .p-accordion-content {
+          padding: 1rem;
+        }
+        &-active {
+          & > .p-toggleable-content:not(.ng-animating) {
+            overflow: visible !important;
+          }
+        }
+      }
+    }
+    @each $type in $accordion-type {
+      .accordion-#{$type} {
+        .p-accordion-tab {
+          @if($type=='primary'){
+            .p-accordion-header {
+              background-color: var(--main-primary-color);
+              color: var(--text-primary-light-mode);
+              &:hover {
+                background-color: var(--contained-hover-bg-primary-color);
+              }
+            }
+          }
+          @if($type=='secondary'){
+            .p-accordion-header {
+              background-color: var(--main-secondary-color);
+              &:hover {
+                background-color: var(--contained-hover-bg-secondary-color);
+              }
+            }
+          }
+          @if($type=='success'){
+            .p-accordion-header {
+              background-color: var(--main-success-color);
+              &:hover {
+                background-color: var(--contained-hover-bg-success-color);
+              }
+            }
+          }
+          @if($type=='info'){
+            .p-accordion-header {
+              background-color: var(--main-info-color);
+              &:hover {
+                background-color: var(--contained-hover-bg-info-color);
+              }
+            }
+          }
+          @if($type=='warning'){
+            .p-accordion-header {
+              background-color: var(--main-warning-color);
+              &:hover {
+                background-color: var(--contained-hover-bg-warning-color);
+              }
+            }
+          }
+          @if($type=='error'){
+            .p-accordion-header {
+              background-color: var(--main-error-color);
+              &:hover {
+                background-color: var(--contained-hover-bg-error-color);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

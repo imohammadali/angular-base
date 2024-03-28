@@ -1,0 +1,95 @@
+
+@mixin sidebar() {
+  .sidebar {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    //justify-content: space-between;
+    overflow-y: auto;
+    height: 100vh;
+    padding-block-end: 6rem;
+    .p-panelmenu {
+      &-header {
+        &.has-children[aria-expanded*="true"]{
+          color: var(--main-primary-color);
+        }
+      }
+      &-panel {
+        font-size: var(--body1-font-size);
+        font-weight: var(body1-font-weight);
+        line-height: var(body1-font-height) !important;
+        padding-inline-start: 1.5rem;
+        border-inline-start: 5px solid;
+        .p-panelmenu-header {
+          padding: .8rem 0;
+        }
+        .p-panelmenu-content {
+          border-inline-start: 2px solid;
+          border-color: var(--main-primary-color);
+          margin-inline-start: 0.6rem;
+          .p-submenu-list {
+            padding-inline-start: 1rem;
+            .p-menuitem {
+              position: relative;
+              &-link {
+                svg {
+                  width: 18px;
+                  height: 18px;
+                }
+              }
+              &-link[aria-expanded*="true"]:not([href^="/"]) {
+                color: var(--main-primary-color);
+                .p-menuitem-icon {
+                  color: var(--main-primary-color);
+                }
+              }
+              .pi {
+                position: absolute;
+                inset-inline-end: 1rem;
+              }
+              .p-submenu-list {
+                border-inline-start: 2px solid;
+                border-color: var(--main-primary-color);
+              }
+            }
+          }
+        }
+        .p-menuitem {
+          &-link {
+            padding: .8rem 0;
+            color: var(--text-primary-color) !important;
+            &-active, &-active .p-menuitem-icon {
+              color: var(--main-primary-color) !important;
+            }
+          }
+          &-icon {
+            font-size: 20px;
+            margin-inline-end: 0.8rem;
+          }
+        }
+      }
+    }
+    .pi-fw {
+      width: unset !important;
+    }
+    .p-icon-wrapper {
+      //font-size: 18px;
+      position: absolute;
+      inset-inline-end: 1rem;
+    }
+  }
+
+  .sidebar-dashboards-list {
+    position: absolute;
+    width: 100%;
+    padding: 0 10px;
+    position: sticky;
+    inset-block-start: 0;
+    background-color: var(--other-body_background-color);
+    z-index: 1;
+  }
+
+  .field-list-dashboard .p-dropdown {
+    height: 38px;
+  }
+}

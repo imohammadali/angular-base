@@ -1,0 +1,209 @@
+$types: 'primary', 'secondary', 'success', 'info', 'warning', 'error';
+
+@mixin file-upload() {
+  .p-fileupload {
+    .p-fileupload-buttonbar {
+      //background: #f8f9fa;
+      display: flex;
+      padding: .25rem;
+      border: 1px solid var(--other-outline_border-color);
+      //color: #343a40;
+      border-bottom: 0 none;
+      border-top-right-radius: 6px;
+      border-top-left-radius: 6px;
+
+      .p-button {
+        border: 1px solid transparent;
+        border-radius: 5px;
+        padding: .4rem 1rem;
+        color: var(--main-contrast-color);
+        cursor: pointer;
+        margin: .4rem;
+        min-width: 8rem;
+        justify-content: center;
+        text-align: center !important;
+        font-size: var(--button_medium-font-size);
+        font-weight: var(--button_medium-font-weight);
+        line-height: var(--button_medium-font-height);
+        background-color: var(--main-secondary-color);
+        animation: bounceIn;
+        animation-duration: 1s;
+        user-select: none;
+
+        &.p-fileupload-choose.p-focus {
+          outline: 0 none;
+          outline-offset: 0;
+          box-shadow: 0 0 0 0.2rem #BFDBFE;
+        }
+      }
+
+      .p-button-label {
+        margin-inline-start: 1rem;
+        flex: unset;
+      }
+
+    }
+
+    .p-fileupload-content {
+      //display: flex;
+      padding: .5rem;
+      border: 1px solid var(--other-outline_border-color);
+      //color: #495057;
+      border-bottom-right-radius: .5rem;
+      border-bottom-left-radius: .5rem;
+      .p-chip {
+        display: inline-flex !important;
+        margin: .4rem;
+      }
+    }
+
+    .p-fileupload-files {
+      .p-fileupload-row {
+        .p-button-icon-only {
+          border-radius: 50%;
+          border-color: var(--outlined-resting-bg-secondary-color);
+
+        }
+      }
+    }
+
+    .p-progressbar {
+      height: 0.25rem;
+    }
+
+    .p-fileupload-row > div {
+      padding: 1rem 1rem;
+    }
+
+    &.p-fileupload-advanced .p-message {
+      margin-top: 0;
+    }
+  }
+
+  .p-fileupload-choose {
+    display: flex;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    padding: .4rem 1rem;
+    color: var(--main-contrast-color);
+    cursor: pointer;
+    margin: .4rem;
+    min-width: 8rem;
+    justify-content: center;
+    text-align: center !important;
+    font-size: var(--button_medium-font-size);
+    font-weight: var(--button_medium-font-weight);
+    line-height: var(--button_medium-font-height);
+    background-color: var(--main-primary-color);
+    animation: bounceIn;
+    animation-duration: 1s;
+    user-select: none;
+    width: fit-content;
+    .p-button-label {
+      margin-inline-start: 1rem;
+    }
+    .p-button-icon {
+      //color: var(--main-contrast-color);
+    }
+    &:not(.p-disabled) {
+      &:hover {
+        background-color: var(--contained-hover-bg-secondary-color);
+      }
+      &:active {
+      }
+    }
+    &.btn {
+      @each $type in $types {
+        &-#{$type} {
+          box-shadow: var(--box-shadow-3);
+          @if($type=='primary'){
+            background-color: var(--main-primary-color);
+            &:hover {
+              background-color: var(--contained-hover-bg-primary-color);
+            }
+          }
+          @if($type=='secondary'){
+            background-color: var(--main-secondary-color);
+            &:hover {
+              background-color: var(--contained-hover-bg-secondary-color);
+            }
+          }
+          @if($type=='success'){
+            background-color: var(--main-success-color);
+            &:hover {
+              background-color: var(--contained-hover-bg-success-color);
+            }
+          }
+          @if($type=='info'){
+            background-color: var(--main-info-color);
+            &:hover {
+              background-color: var(--contained-hover-bg-info-color);
+            }
+          }
+          @if($type=='warning'){
+            background-color: var(--main-warning-color);
+            &:hover {
+              background-color: var(--contained-hover-bg-warning-color);
+            }
+          }
+          @if($type=='error'){
+            background-color: var(--main-error-color);
+            &:hover {
+              background-color: var(--contained-hover-bg-error-color);
+            }
+          }
+        }
+      }
+      &-outline {
+        @each $type in $btn-type {
+          &-#{$type} {
+            background-color: transparent;
+            @if($type=='primary'){
+              border-color: var(--outlined-resting-bg-primary-color);
+              color: var(--main-primary-color);
+              &:hover {
+                background-color: var(--outlined-hover-bg-primary-color);
+              }
+            }
+            @if($type=='secondary'){
+              border-color: var(--outlined-resting-bg-secondary-color);
+              color: var(--main-secondary-color);
+              &:hover {
+                background-color: var(--outlined-hover-bg-secondary-color);
+              }
+            }
+            @if($type=='success'){
+              border-color: var(--outlined-resting-bg-success-color);
+              color: var(--main-success-color);
+              &:hover {
+                background-color: var(--outlined-hover-bg-success-color);
+              }
+            }
+            @if($type=='info'){
+              border-color: var(--outlined-resting-bg-info-color);
+              color: var(--main-info-color);
+              &:hover {
+                background-color: var(--outlined-hover-bg-info-color);
+              }
+            }
+            @if($type=='warning'){
+              border-color: var(--outlined-resting-bg-warning-color);
+              color: var(--main-warning-color);
+              &:hover {
+                background-color: var(--outlined-hover-bg-warning-color);
+              }
+            }
+            @if($type=='error'){
+              border-color: var(--outlined-resting-bg-error-color);
+              color: var(--main-error-color);
+              &:hover {
+                background-color: var(--outlined-hover-bg-error-color);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+}

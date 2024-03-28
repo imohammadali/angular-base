@@ -1,0 +1,91 @@
+
+@mixin paginator() {
+  p-paginator {
+    .p-paginator {
+      justify-content: flex-end;
+      margin: 1rem 0;
+      & > button {
+        padding: 1rem;
+        border-radius: 50%;
+      }
+      &-current {
+        margin-inline-end: 1.5rem;
+      }
+      &-pages {
+        button {
+          width: 2rem;
+          height: 2rem;
+          border-radius: 50%;
+          font-weight: 800;
+          background-color: var(--outlined-resting-bg-secondary-color);
+          margin: 0 .2rem;
+          color: var(--text-primary-color);
+          &.p-highlight {
+            background-color: var(--contained-hover-bg-primary-color);
+            color: var(--common-white);
+            //border: 1px solid var(--contained-hover-bg-primary-color);
+          }
+        }
+      }
+      &-next, &-last, &-first, &-prev {
+        color: var(--text-primary-color);
+        font-size: 2rem;
+      }
+      .p-disabled {
+        color: var(--action-active-color);
+      }
+      p-dropdown {
+        border: 1px solid var(--other-outline_border-color);
+        font-size: var(--input_text-font-size);
+        font-weight: var(--input_text-font-weight);
+        line-height: var(--input_text-font-height);
+        color: var(--text-primary-color);
+        border-radius: .6rem;
+        margin-inline-start: 1.5rem;
+        &.p-inputwrapper {
+          .p-paginator-rpp-options {
+            display: flex;
+            justify-content: space-between;
+            min-width: 5rem;
+            padding: .2rem 1rem;
+            .p-dropdown-panel {
+              z-index: 2;
+              background-color: var(--main-contrast-color);
+              border-radius: .6rem;
+              border: 1px solid var(--other-outline_border-color);
+              font-size: var(--input_text-font-size);
+              font-weight: var(--input_text-font-weight);
+              line-height: var(--input_text-font-height);
+              color: var(--text-primary-color);
+              margin-block-start: 0.1rem;
+              .p-dropdown-items {
+                .p-dropdown-item {
+                  padding: .5rem;
+                  text-align: center;
+                  border-radius: .6rem;
+                  &.p-highlight {
+                    background: var(--custom-primary-color);
+                  }
+                  &:hover {
+                    background: var(--custom-primary-color);
+                    transition: var(--transition);
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      &-page-input {
+        .p-inputnumber-input {
+          color: var(--text-primary-color);
+          border: 1px solid var(--other-outline_border-color);
+          background: transparent;
+          border-radius: .5rem;
+          padding: 0.2rem 0.5rem;
+          max-width: 5rem;
+        }
+      }
+    }
+  }
+}

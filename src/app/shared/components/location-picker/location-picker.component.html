@@ -1,0 +1,7 @@
+<div class="map-modal">
+    <div id="map" class="map-container" [style.opacity]="showMap ? 1:0"> </div>
+    <div class="map-modal-footer">
+        <button type="button" (click)="SelectLocation()" [disabled]="!location || disabled"
+            class="btn btn-primary">{{'table.column.select'|translate}}</button>
+    </div>
+</div>

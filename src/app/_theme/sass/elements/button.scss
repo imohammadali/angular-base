@@ -1,0 +1,191 @@
+// List
+$btn-type: 'primary', 'secondary', 'success', 'info', 'warning', 'error';
+$btn-size: 'small', 'medium', 'large';
+
+@mixin button() {
+  .btn {
+    border: 1px solid transparent;
+    border-radius: 5px;
+    padding: .4rem 1rem;
+    color: var(--main-contrast-color);
+    cursor: pointer;
+    margin: .3rem;
+    min-width: 8rem;
+    justify-content: center;
+    text-align: center !important;
+    font-size: var(--button_medium-font-size);
+    font-weight: var(--button_medium-font-weight);
+    line-height: var(--button_medium-font-height);
+    background-color: var(--main-primary-color);
+    animation: bounceIn;
+    animation-duration: 1s;
+    user-select: none;
+    &:hover {
+      background-color: var(--contained-hover-bg-primary-color);
+    }
+    &-outline {
+      @each $type in $btn-type {
+        &-#{$type} {
+          background-color: transparent;
+          @if($type=='primary'){
+            border-color: var(--outlined-resting-bg-primary-color);
+            color: var(--main-primary-color);
+            &:hover {
+              background-color: var(--outlined-hover-bg-primary-color);
+            }
+          }
+          @if($type=='secondary'){
+            border-color: var(--outlined-resting-bg-secondary-color);
+            color: var(--main-secondary-color);
+            &:hover {
+              background-color: var(--outlined-hover-bg-secondary-color);
+            }
+          }
+          @if($type=='success'){
+            border-color: var(--outlined-resting-bg-success-color);
+            color: var(--main-success-color);
+            &:hover {
+              background-color: var(--outlined-hover-bg-success-color);
+            }
+          }
+          @if($type=='info'){
+            border-color: var(--outlined-resting-bg-info-color);
+            color: var(--main-info-color);
+            &:hover {
+              background-color: var(--outlined-hover-bg-info-color);
+            }
+          }
+          @if($type=='warning'){
+            border-color: var(--outlined-resting-bg-warning-color);
+            color: var(--main-warning-color);
+            &:hover {
+              background-color: var(--outlined-hover-bg-warning-color);
+            }
+          }
+          @if($type=='error'){
+            border-color: var(--outlined-resting-bg-error-color);
+            color: var(--main-error-color);
+            &:hover {
+              background-color: var(--outlined-hover-bg-error-color);
+            }
+          }
+        }
+      }
+    }
+    &-text {
+      @each $type in $btn-type {
+        &-#{$type} {
+          background-color: transparent;
+          @if($type=='primary'){
+            color: var(--main-primary-color);
+            &:hover {
+              background-color: var(--outlined-hover-bg-primary-color);
+            }
+          }
+          @if($type=='secondary'){
+            color: var(--main-secondary-color);
+            &:hover {
+              background-color: var(--outlined-hover-bg-secondary-color);
+            }
+          }
+          @if($type=='success'){
+            color: var(--main-success-color);
+            &:hover {
+              background-color: var(--outlined-hover-bg-success-color);
+            }
+          }
+          @if($type=='info'){
+            color: var(--main-info-color);
+            &:hover {
+              background-color: var(--outlined-hover-bg-info-color);
+            }
+          }
+          @if($type=='warning'){
+            color: var(--main-warning-color);
+            &:hover {
+              background-color: var(--outlined-hover-bg-warning-color);
+            }
+          }
+          @if($type=='error'){
+            color: var(--main-error-color);
+            &:hover {
+              background-color: var(--outlined-hover-bg-error-color);
+            }
+          }
+        }
+      }
+    }
+    &-rounded {
+      border-radius: 50vh;
+      box-shadow: var(--box-shadow-5);
+    }
+    .p-button-icon {
+      margin-inline-end: .5rem;
+    }
+    @each $type in $btn-type {
+      &-#{$type} {
+        box-shadow: var(--box-shadow-3);
+        @if($type=='primary'){
+          background-color: var(--main-primary-color);
+          &:hover {
+            background-color: var(--contained-hover-bg-primary-color);
+          }
+        }
+        @if($type=='secondary'){
+          background-color: var(--main-secondary-color);
+          &:hover {
+            background-color: var(--contained-hover-bg-secondary-color);
+          }
+        }
+        @if($type=='success'){
+          background-color: var(--main-success-color);
+          &:hover {
+            background-color: var(--contained-hover-bg-success-color);
+          }
+        }
+        @if($type=='info'){
+          background-color: var(--main-info-color);
+          &:hover {
+            background-color: var(--contained-hover-bg-info-color);
+          }
+        }
+        @if($type=='warning'){
+          background-color: var(--main-warning-color);
+          &:hover {
+            background-color: var(--contained-hover-bg-warning-color);
+          }
+        }
+        @if($type=='error'){
+          background-color: var(--main-error-color);
+          &:hover {
+            background-color: var(--contained-hover-bg-error-color);
+          }
+        }
+      }
+    }
+    @each $size in $btn-size {
+      &-#{$size} {
+        @if($size=='small') {
+          font-size: var(--button_small-font-size);
+          font-weight: var(--button_small-font-weight);
+          line-height: var(--button_small-font-height);
+        }
+        @if($size=='medium') {
+          font-size: var(--button_medium-font-size);
+          font-weight: var(--button_medium-font-weight);
+          line-height: var(--button_medium-font-height);
+        }
+        @if($size=='large') {
+          font-size: var(--button_large-font-size);
+          font-weight: var(--button_large-font-weight);
+          line-height: var(--button_large-font-height);
+        }
+      }
+    }
+  }
+  .action-buttons {
+    display: flex;
+    justify-content: flex-end;
+    margin-block-start: 1rem;
+  }
+}

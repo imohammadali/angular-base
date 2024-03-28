@@ -1,0 +1,107 @@
+@import "primeng/resources/primeng.min.css";
+//@import "primeng/resources/themes/lara-light-blue/theme.css";
+@import "primeicons/primeicons.css";
+
+@import 'app/_theme/sass/variables/general-variables';
+@import 'app/_theme/sass/variables/colors/default';
+@import 'app/_theme/sass/variables/colors/dark';
+@import 'app/_theme/sass/variables/typography/fa/iransans';
+@import 'app/_theme/sass/variables/typography/en/iransans';
+
+@import 'bootstrap/scss/functions';
+@import 'bootstrap/scss/variables';
+@import 'bootstrap/scss/mixins';
+@import 'bootstrap/scss/bootstrap-reboot';
+@import 'bootstrap/scss/bootstrap-grid';
+@import 'bootstrap/scss/utilities';
+@import "bootstrap-icons/font/bootstrap-icons.css";
+
+@import 'codemirror/lib/codemirror';
+@import 'codemirror/theme/material';
+@import 'diff2html/bundles/css/diff2html.min.css';
+@import 'intro.js/introjs.css';
+
+@import "assets/font-icon/icomoon/style.css";
+@import "assets/font/iran-sans/style.css";
+@import "assets/splash-screen.css";
+
+@import 'app/_theme/sass/styles-reset.scss-theme';
+
+@import "app/_theme/sass/breakpoint/tablet";
+@import "app/_theme/sass/breakpoint/mobile";
+
+@import "animate.css";
+
+* :focus {
+  box-shadow: none !important;
+  outline: none;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-text-fill-color: var(--text-primary-color);
+  -webkit-box-shadow: 0 0 0 1000px transparent inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
+.highcharts-credits {
+  display: none;
+}
+
+
+html, body {
+  margin: 0;
+  padding: 0;
+  a {
+    color: unset;
+    text-decoration: none;
+    &:hover {
+      color: unset;
+    }
+  }
+  ol, ul, dl {
+    margin: 0;
+    padding: 0;
+  }
+  [class*="col-"]:has( > .field):has(p-dropdown:focus,p-autoComplete:focus,p-treeselect:focus) {
+    position: relative;
+    z-index: 2;
+  }
+}
+
+.default-theme {
+  @include color-variables-default-theme();
+}
+.dark-theme {
+  @include color-variables-dark-theme();
+}
+
+.rtl-theme {
+  @include typography-fa-iransans();
+  font-size: var(--body1-font-size);
+  font-weight: var(--body1-font-weight);
+  line-height: var(--body1-font-height);
+}
+.ltr-theme {
+  @include typography-en-iransans();
+  font-size: var(--body1-font-size);
+  font-weight: var(--body1-font-weight);
+  line-height: var(--body1-font-height);
+}
+
+
+.theme-wrapper {
+  @include general-variables();
+  @include primeng-component-style();
+  @include tablet-breakpoint(1023);
+  @include mobile-breakpoint(767);
+}
+
+.mapboxgl-canvas-container,
+.mapboxgl-canvas,
+.mapboxgl-marker {
+    cursor: pointer;
+}
+
+

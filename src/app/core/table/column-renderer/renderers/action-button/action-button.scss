@@ -1,0 +1,43 @@
+
+::ng-deep .tooltip-class {
+  font-size: 0.7rem !important;
+}
+.action-button {
+  display: flex;
+  justify-content: center;
+  .pi {
+    font-size: 1.3rem;
+    &-key {
+      color: var(--main-secondary-color);
+      &:hover {
+        color: var(--contained-hover-bg-secondary-color);
+      }
+    }
+    &-file-edit {
+      color: var(--main-info-color);
+      &:hover {
+        color: var(--contained-hover-bg-info-color);
+      }
+    }
+    &-trash {
+      color: var(--main-error-color);
+      &:hover {
+        color: var(--contained-hover-bg-error-color);
+      }
+    }
+  }
+  .disabled {
+    color: var(--main-secondary-color);
+    &:hover {
+      color: var(--contained-hover-bg-secondary-color);
+    }
+  }
+}
+.action-button span {
+  &:not(:last-child) {
+    margin-inline-end: 1rem;
+  }
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}

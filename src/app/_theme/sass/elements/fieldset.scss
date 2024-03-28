@@ -1,0 +1,84 @@
+
+$fieldset-type: 'primary', 'secondary', 'success', 'info', 'warning', 'error';
+
+@mixin fieldset() {
+  p-fieldset {
+    width: 100%;
+    .p-fieldset {
+      border: 1px solid var(--other-outline_border-color);
+      border-radius: .5rem;
+      .p-fieldset-legend {
+        width: fit-content;
+        border: 1px solid var(--other-outline_border-color);
+        color: var(--text-primary-color);
+        background: var(--bg-page-header);
+        font-size: var(--body1-font-size);
+        font-weight: var(body1-font-weight);
+        line-height: var(body1-font-height);
+        border-radius: .5rem;
+        float: unset !important;
+        margin-inline-start: 1rem;
+        .p-icon-wrapper {
+          margin-inline-end: .5rem;
+        }
+        &-text {
+          padding: 1rem;
+          border-radius: .5rem;
+          transition: box-shadow 0.2s;
+          text-decoration: none;
+        }
+      }
+      &.p-fieldset-toggleable.p-fieldset-expanded>.p-toggleable-content:not(.ng-animating) {
+        overflow: visible !important;
+      }
+      &.p-fieldset-toggleable .p-fieldset-legend {
+        padding: 0;
+        transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
+        a {
+          padding: 1rem;
+          border-radius: .5rem;
+          transition: box-shadow 0.2s;
+          text-decoration: none;
+          .p-fieldset-toggler {
+            margin-inline-start: 0.5rem;
+          }
+          &:focus {
+            outline: 0 none;
+            outline-offset: 0;
+            box-shadow: 0 0 0 0.2rem #BFDBFE;
+          }
+        }
+        &-text {
+          padding: 0 !important;
+        }
+        &:hover {
+          background: var(--action-hover-color);
+        }
+      }
+      .p-fieldset-content {
+        padding: 1.25rem;
+      }
+
+    }
+
+    .fieldset {
+      @each $type in $fieldset-type {
+        &-#{$type} {
+          @if($type=='primary'){
+            .p-fieldset {
+              &-legend {
+                border: 1px solid var(--other-outline_border-color);
+                background: var(--main-primary-color);
+                color: var(--text-primary-light-mode);
+                .p-icon-wrapper {
+                  color: var(--text-primary-light-mode);
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+  }
+}

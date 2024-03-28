@@ -1,0 +1,69 @@
+
+$message-type: 'primary', 'secondary', 'success', 'info', 'warning', 'error';
+
+@mixin message() {
+  p-message {
+    color: var(--main-primary-color);
+    font-size: var(--message_label-font-size);
+    font-weight: var(--message_label-font-weight);
+    line-height: var(--message_label-font-height);
+    .p-inline-message {
+      justify-content: unset;
+      width: 100%;
+      padding: 0 .5rem;
+      &.bg {
+        border-radius: .5rem;
+        padding: .5rem;
+      }
+      &-text {
+        margin-inline-start: .5rem;
+      }
+    }
+    @each $type in $message-type {
+      &[severity=#{$type}] {
+        @if($type=='primary'){
+          color: var(--main-primary-color);
+          .bg {
+            background-color: var(--outlined-hover-bg-primary-color);
+            border: 1px solid  var(--main-primary-color);
+          }
+        }
+        @if($type=='secondary'){
+          color: var(--main-secondary-color);
+          .bg {
+            background-color: var(--outlined-hover-bg-secondary-color);
+            border: 1px solid  var(--main-secondary-color);
+          }
+        }
+        @if($type=='success'){
+          color: var(--main-success-color);
+          .bg {
+            background-color: var(--outlined-hover-bg-success-color);
+            border: 1px solid  var(--main-success-color);
+          }
+        }
+        @if($type=='info'){
+          color: var(--main-info-color);
+          .bg {
+            background-color: var(--outlined-hover-bg-info-color);
+            border: 1px solid  var(--main-info-color);
+          }
+        }
+        @if($type=='warning'){
+          color: var(--main-warning-color);
+          .bg {
+            background-color: var(--outlined-hover-bg-warning-color);
+            border: 1px solid  var(--main-warning-color);
+          }
+        }
+        @if($type=='error'){
+          color: var(--main-error-color);
+          .bg {
+            background-color: var(--outlined-hover-bg-error-color);
+            border: 1px solid  var(--main-error-color);
+          }
+        }
+      }
+    }
+  }
+}

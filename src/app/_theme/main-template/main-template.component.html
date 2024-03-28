@@ -1,0 +1,14 @@
+<div style='height:100vh;overflow-y: hidden'>
+  <navbar></navbar>
+  <div class='main'>
+    <aside class='main-sidebar' [ngClass]='{"active": show_sidebar$|async, "mobile-active": show_mobile_sidebar$|async}'>
+      <sidebar></sidebar>
+    </aside>
+    <div class='main-content animate__animated animate__fadeIn'>
+      <breadcrumb></breadcrumb>
+      <router-outlet></router-outlet>
+    </div>
+    <input  #show_mobile_sidebar [value]="(show_mobile_sidebar$ | async)" type="hidden" />
+    <div *ngIf='show_mobile_sidebar$|async' (click)='toggle_mobile_sidebar(show_mobile_sidebar.value)' class="backgroundOverlay"></div>
+  </div>
+</div>

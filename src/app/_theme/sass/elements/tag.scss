@@ -1,0 +1,46 @@
+
+$tag-type: 'primary', 'secondary', 'success', 'info', 'warning', 'error';
+$tag-size: 'small', 'medium', 'large';
+
+@mixin tag() {
+  p-tag {
+    .p-tag {
+      border: 1px solid var(--other-outline_border-color);
+      padding: .4rem;
+      border-radius: .5rem;
+      font-size: var(--badge_label-font-size);
+      font-weight: var(--badge_label-font-weight);
+      line-height: var(--badge_label-font-height);
+      color: var(--text-primary-color);
+      margin: .2rem;
+      &-icon {
+        margin-inline-end: 0.2rem;
+      }
+    }
+    .p-tag-rounded {
+      border-radius: 50vh;
+    }
+    @each $type in $tag-type {
+      .tag-#{$type} {
+        @if($type=='primary'){
+          background-color: var(--main-primary-color);
+        }
+        @if($type=='secondary'){
+          background-color: var(--main-secondary-color);
+        }
+        @if($type=='success'){
+          background-color: var(--main-success-color);
+        }
+        @if($type=='info'){
+          background-color: var(--main-info-color);
+        }
+        @if($type=='warning'){
+          background-color: var(--main-warning-color);
+        }
+        @if($type=='error'){
+          background-color: var(--main-error-color);
+        }
+      }
+    }
+  }
+}

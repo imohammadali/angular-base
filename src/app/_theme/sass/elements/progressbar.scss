@@ -1,0 +1,10 @@
+
+@mixin progressbar() {
+  p-progressbar {
+    .p-progressbar {
+      &-value {
+        background: var(--main-primary-color);
+      }
+    }
+  }
+}

@@ -1,0 +1,60 @@
+
+$radiobutton-type: 'primary', 'secondary', 'success', 'info', 'warning', 'error';
+$radiobutton-size: 'small', 'medium', 'large';
+
+@mixin select-button() {
+  p-selectbutton {
+    width: 100%;
+    .p-selectbutton {
+      border: 1px solid var(--other-outline_border-color);
+      border-radius: 0.6rem;
+      display: flex;
+      padding: .2rem;
+      flex-wrap: wrap;
+      .p-button {
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 24px;
+        padding: 0.8rem 1.2rem;
+        flex-grow: 1;
+        border-radius: 0.3rem;
+        color: var(--text-primary-color);
+        &[aria-pressed=true] {
+          background-color: var(--main-primary-color);
+          color: var(--common-white) !important;
+        }
+        &-label {
+          text-align: center;
+        }
+      }
+      &.select-button-small {
+        .p-button {
+          padding: .4rem .8rem;
+        }
+      }
+      &.binary {
+        &.true {
+          .p-button {
+            &[aria-pressed=true] {
+              background-color: var(--main-success-color);
+            }
+            &[aria-pressed=false] {
+              background-color: transparent;
+            }
+          }
+        }
+        &.false {
+          .p-button {
+            &[aria-pressed=true] {
+              background-color:  var(--main-error-color);
+              color: var(--common-white);
+            }
+            &[aria-pressed=false] {
+              background-color: transparent;
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,35 @@
+
+@mixin card() {
+  .p-card {
+    background: var(--paper-bg-color);
+    box-shadow: var(--paper-box-shadows);
+    border-radius: var(--paper-radius);
+    animation: fadeInRight;
+    animation-duration: .4s;
+    //overflow-y: auto;
+    //max-height: calc(100vh - 12rem);
+    .p-card-body {
+      padding: 1.25rem;
+    }
+    .p-card-title {
+      font-size: var(--h6-font-size);
+      font-weight: var(--h6-font-weight);
+      line-height: var(--h6-font-height);
+      margin-bottom: 0.5rem;
+    }
+    .p-card-subtitle {
+      font-weight: 400;
+      margin-bottom: 0.5rem;
+      color: #6c757d;
+    }
+    .p-card-header {
+      padding: 1.25rem 1.5rem;
+    }
+    .p-card-content {
+      //padding: 1.25rem 0;
+    }
+    .p-card-footer {
+      padding: 1.25rem 1.5rem;
+    }
+  }
+}

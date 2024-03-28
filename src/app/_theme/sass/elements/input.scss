@@ -1,0 +1,101 @@
+
+$dropdown-size: 'small', 'medium', 'large';
+
+@mixin input() {
+  .field {
+    margin-top: 1rem;
+    margin-bottom: .5rem;
+    display: flex;
+    label {
+      align-self: center;
+    }
+    &.require-field {
+      label:after {
+        content: '*';
+        padding: 0 .2rem;
+        font-size: 1rem;
+        color: var(--main-error-color)
+      }
+    }
+  }
+  .p-float-label, .p-datatable, .p-inputgroup, .p-overlay-content, .p-tree-filter-container {
+    & > label {
+      inset-inline-start: .8rem;
+      background-color: var(--paper-bg-color);
+      font-size: var(--input_label-font-size);
+      font-weight: var(--input_label-font-weight);
+      line-height: var(--input_label-font-height);
+      color: var(--text-secondary-color);
+      padding: 0 .8rem;
+      transition: var(--transition);
+      width: fit-content;
+    }
+    textarea ~ label {
+      inset-block-start: 1.4rem;
+    }
+    .p-inputtext, .p-inputnumber, .p-password, .p-calendar, .p-chips {
+      width: 100%;
+      background-color: transparent;
+      i {
+        inset-inline-end: 1rem;
+        background-color: var(--bg-page-header)
+      }
+    }
+    .p-inputtext {
+      border: 1px solid var(--other-outline_border-color);
+      font-size: var(--input_text-font-size);
+      font-weight: var(--input_text-font-weight);
+      line-height: var(--input_text-font-height);
+      color: var(--text-primary-color);
+      padding: .8rem 1.2rem;
+      border-radius: .6rem;
+      &:focus, &.p-filled {
+        &~label {
+          top: 0;
+          inset-inline-start: 1rem;
+          transition: 100ms ease-in-out;
+        }
+      }
+      &:focus, &:focus-visible {
+        border-color: var(--main-primary-color) !important;
+        &~label {
+          color: var(--main-primary-color);
+        }
+      }
+      &.outline {
+        border: unset;
+        border-bottom: 1px solid var(--other-outline_border-color);
+        border-radius: unset;
+      }
+    }
+  }
+  .p-inputgroup {
+    .btn {
+      height: 100%;
+      margin: 0;
+      min-width: auto;
+      border-start-start-radius: 0;
+      border-end-start-radius: 0;
+    }
+    .p-inputtext {
+      border-start-end-radius: 0;
+      border-end-end-radius: 0;
+    }
+  }
+  .p-input-icon-right {
+    .p-icon-wrapper, .pi {
+      inset-inline-end: 1.2rem;
+      &.pi-question-circle {
+        color: var(--main-info-color)
+      }
+    }
+  }
+  .p-input-icon-left {
+    .p-icon-wrapper, .pi {
+      inset-inline-start: 1.2rem;
+      &.pi-question-circle {
+        color: var(--main-info-color)
+      }
+    }
+  }
+}

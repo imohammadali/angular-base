@@ -1,0 +1,144 @@
+// List
+$switch-type: 'primary', 'secondary', 'success', 'info', 'warning', 'error';
+$switch-size: 'small', 'medium', 'large';
+
+@mixin switch() {
+  p-inputswitch {
+    //margin: 0 .4rem;
+    .p-inputswitch {
+      width: 2.5rem;
+      height: 1rem;
+      align-self: center;
+      display: flex;
+      &-slider {
+        background: var(--grey-500);
+        border-radius: 50vh;
+        &:before {
+          background-color: var(--grey-50);
+          box-shadow: var(--box-shadow-1);
+          width: 1.25rem;
+          height: 1.25rem;
+          border-radius: 50%;
+          transform: translateY(-50%);
+        }
+      }
+      &-checked {
+        .p-inputswitch-slider {
+          background: var(--custom-primary-color);
+          &:before {
+            //transform: translateY(-50%) translateX(100%);
+            margin-inline-start: 1.5rem;
+            background-color: var(--main-primary-color);
+          }
+        }
+      }
+    }
+    @each $type in $checkbox-type {
+      &.switch-#{$type} {
+        .p-inputswitch-checked {
+          .p-inputswitch {
+            &-slider {
+              @if($type=='primary'){
+                background: var(--custom-primary-color);
+                &:before {
+                  background-color: var(--main-primary-color);
+                }
+              }
+              @if($type=='secondary'){
+                background: var(--custom-secondary-color);
+                &:before {
+                  background-color: var(--main-secondary-color);
+                }
+              }
+              @if($type=='success'){
+                background: var(--custom-success-color);
+                &:before {
+                  background-color: var(--main-success-color);
+                }
+              }
+              @if($type=='info'){
+                background: var(--custom-info-color);
+                &:before {
+                  background-color: var(--main-info-color);
+                }
+              }
+              @if($type=='warning'){
+                background: var(--custom-warning-color);
+                &:before {
+                  background-color: var(--main-warning-color);
+                }
+              }
+              @if($type=='error'){
+                background: var(--custom-error-color);
+                &:before {
+                  background-color: var(--main-error-color);
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    @each $size in $switch-size {
+      &.switch-#{$size} {
+        @if($size=='small'){
+          .p-inputswitch {
+            width: 2rem;
+            height: 1rem;
+            &-slider {
+              &:before {
+                width: 1rem;
+                height: 1rem;
+              }
+            }
+            &-checked {
+              .p-inputswitch-slider {
+                &:before {
+                  margin-inline-start: 1rem;
+                }
+              }
+            }
+          }
+        }
+        @if($size=='medium'){
+          .p-inputswitch {
+            width: 2.5rem;
+            height: 1rem;
+            &-slider {
+              &:before {
+                width: 1.25rem;
+                height: 1.25rem;
+              }
+            }
+            &-checked {
+              .p-inputswitch-slider {
+                &:before {
+                  margin-inline-start: 1.25rem;
+                }
+              }
+            }
+          }
+        }
+        @if($size=='large'){
+          .p-inputswitch {
+            width: 3rem;
+            height: 1rem;
+            &-slider {
+              &:before {
+                width: 1.5rem;
+                height: 1.5rem;
+              }
+            }
+            &-checked {
+              .p-inputswitch-slider {
+                &:before {
+                  margin-inline-start: 1.5rem;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

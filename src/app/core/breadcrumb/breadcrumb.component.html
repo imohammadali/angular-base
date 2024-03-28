@@ -1,0 +1,5 @@
+<ng-template [ngIf]="($show|async) && (items$|async).length">
+  <div class='breadcrumb'>
+    <p-breadcrumb [model]="items$|async"></p-breadcrumb>
+  </div>
+</ng-template>

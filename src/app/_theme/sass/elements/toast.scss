@@ -1,0 +1,73 @@
+
+@mixin toast() {
+  .p-toast {
+    opacity: 0.9;
+  }
+  .p-toast .p-toast-message {
+    margin-bottom: 1rem;
+    box-shadow: var(--box-shadow-3);
+    border-radius: 6px;
+    & .p-toast-message-content {
+      padding: 1rem;
+      border-width: 0 0 0 6px;
+      & .p-icon:not(.p-toast-icon-close-icon) {
+        width: 2rem;
+        height: 2rem;
+      }
+    }
+    & .p-toast-message-text {
+      margin-inline-start: 1rem;
+    }
+    & .p-toast-message-icon {
+      font-size: var(--toast-font-size);
+      font-weight: var(--toast-font-weight);
+      line-height: var(--toast-font-height);
+    }
+    & .p-toast-summary {
+      font-weight: var(--toast-font-weight);
+    }
+    & .p-toast-detail {
+      margin-top: 0.5rem;
+    }
+    & .p-toast-icon-close {
+      width: 2rem;
+      height: 2rem;
+      border-radius: 50%;
+      background: transparent;
+      transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
+      color: var(--main-contrast-color);
+      &:focus {
+        outline: 0 none;
+        outline-offset: 0;
+        box-shadow: var(--box-shadow-5);
+      }
+    }
+    & .p-toast-icon-close:hover {
+      background: rgba(255, 255, 255, 0.3);
+    }
+    &.p-toast-message-info {
+      background: var(--main-info-color);
+      border: solid var(--contained-hover-bg-info-color);
+      border-width: 0 0 0 6px;
+      color: var(--main-contrast-color);
+    }
+    &.p-toast-message-success {
+      background: var(--main-success-color);
+      border: solid var(--contained-hover-bg-success-color);
+      border-width: 0 0 0 6px;
+      color: var(--main-contrast-color);
+    }
+    &.p-toast-message-warn {
+      background: var(--main-warning-color);
+      border: solid var(--contained-hover-bg-warning-color);
+      border-width: 0 0 0 6px;
+      color: var(--main-contrast-color);
+    }
+    &.p-toast-message-error {
+      background: var(--main-error-color);
+      border: solid var(--contained-hover-bg-error-color);
+      border-width: 0 0 0 6px;
+      color: var(--main-contrast-color);
+    }
+  }
+}

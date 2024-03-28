@@ -1,0 +1,157 @@
+<p-table #dt [lazy]="true" (onLazyLoad)="onFilters($event)" [globalFilterFields]="['username']" (onRowReorder)="onRowReorder($event?.dragIndex, $event?.dropIndex)"
+         selectionMode="multiple" [dataKey]="(settingTable$|async)?.setting?.dataKeyRow||'id'" [(selection)]="selection" [reorderableColumns]="true"
+         (selectionChange)="onSelectionChange($event)" (mouseleave)='rowHoverIndex= -1' (onHeaderCheckboxToggle)="onSelectedAll($event)"
+         [value]="(dataTable$|async)|MapDataTable:((settingTable$|async)?.mapData)">
+  <ng-template pTemplate="caption">
+    <ng-template [ngIf]="(settingTable$|async)?.setting?.toggleColumns!==false || (settingTable$|async)?.setting?.reOrderColumns!==false || (toggleFilter$|async)">
+      <div class="row justify-content-end">
+        <div class="col-auto">
+          <button *ngIf="toggleFilter$|async" pRipple class="btn btn-rounded btn-warning toggle-filter pi pi-filter-slash" [class.pi-filter]="(showFilter$|async) === false"
+                  (click)="showFilter$.next(!showFilter$.value)"></button>
+          <button pRipple class="btn btn-rounded btn-warning toggle-filter pi pi-bars"
+                  (click)="toggleColumns.toggle($event)"></button>
+          <p-overlayPanel #toggleColumns appendTo="body">
+            <ng-template pTemplate>
+              <ng-container *ngFor="let column of tableColumns$|async;let index=index">
+                <div class="field m-0 px-1 py-2" pDroppable (onDrop)="colReorderToIndex=index;onColReorder()">
+                  <span *ngIf="(settingTable$|async)?.setting?.reOrderColumns!==false" class="icon-drag_indicator" style="cursor: move" dragEffect="move" pDraggable (onDrag)="colReorderFromIndex=index"></span>
+                  <p-checkbox *ngIf="(settingTable$|async)?.setting?.toggleColumns!==false" class='checkbox-solid' [binary]='true' [ngModel]="!column?.is_hidden" (click)="toggleColumn(column?.label, !column?.is_hidden)"></p-checkbox>
+                  <label>{{(column.label ? ('table.column.'+column.label) : '')|translate}}</label>
+                </div>
+              </ng-container>
+            </ng-template>
+          </p-overlayPanel>
+        </div>
+      </div>
+    </ng-template>
+    <div class="row justify-content-between align-items-center" style="padding-block-end: 1rem;">
+      <div class='col-auto'>
+        <span class="field p-float-label" *ngIf="[undefined, true].includes((settingTable$|async).setting.globalFilter)">
+          <input pInputText (input)="dt.filterGlobal($event.target?.['value'], 'contains')" [(ngModel)]="filterGlobal">
+          <label translate="forms.search"></label>
+        </span>
+      </div>
+      <div class="col d-flex justify-content-end">
+        <ng-content select=".buttons"></ng-content>
+      </div>
+    </div>
+  </ng-template>
+  <ng-template pTemplate="header">
+    <tr class="filter-row" [class.d-none]="!(showFilter$|async)">
+      <th></th>
+      <ng-template [ngIf]="(settingTable$|async)?.setting?.reorder && (dataTable$|async)?.length">
+        <th style="width: 4rem">
+        </th>
+      </ng-template>
+      <ng-template [ngIf]="(settingTable$|async)?.setting?.selection">
+        <th style="width: 4rem">
+        </th>
+      </ng-template>
+      <ng-container *ngFor='let column of (settingTable$|async).columns'>
+        <th *ngIf="!column?.is_hidden">
+          <ng-template [ngIf]="column.filter?.key">
+            <ng-container [ngSwitch]="column.filter.type">
+              <span *ngSwitchCase="'text'" class="field d-block">
+                <input pInputText (input)="dt.filter($event.target?.['value'], column.filter.key, 'contains')"
+                       [placeholder]="'forms.search_to'|translate: {field: ('table.column.'+column.label|translate)}">
+              </span>
+              <span *ngSwitchCase="'dropdown'" class="field d-block">
+                <p-dropdown [autoDisplayFirst]="false" [filter]="true" appendTo="body"
+                            (onChange)="dt.filter($event?.['value']?.[column.filter.option.optionValue||'id'], column.filter.key, 'contains')"
+                            [options]="column.filter.option.data|async" [optionLabel]="column.filter.option.optionLabel||'name'" [showClear]="true">
+                </p-dropdown>
+              </span>
+              <span *ngSwitchCase="'boolean'" class="field d-block" [style]="{'text-align': column?.with===0 ? 'center' : 'unset'}">
+                <p-triStateCheckbox class='checkbox-solid' (onChange)="dt.filter($event?.['value'], column.filter.key, 'contains')"></p-triStateCheckbox>
+              </span>
+              <span *ngSwitchCase="'range_date'" class="field d-block" [style]="{'text-align': column?.with===0 ? 'center' : 'unset'}">
+                <div class="row">
+                  <div class="col-lg-6">
+                    <prime-calendar [placeholder]="'forms.from_date'|translate" appendTo="body" (onSelect)="dt.filter($event, column.filter.key+'_start', 'contains')"></prime-calendar>
+                  </div>
+                  <div class="col-lg-6">
+                    <prime-calendar [placeholder]="'forms.to_date'|translate" appendTo="body" (onSelect)="dt.filter($event, column.filter.key+'_end', 'contains')"></prime-calendar>
+                  </div>
+                </div>
+              </span>
+            </ng-container>
+          </ng-template>
+        </th>
+      </ng-container>
+    </tr>
+    <tr>
+      <ng-template [ngIf]="(settingTable$|async)?.setting?.reorder && (dataTable$|async)?.length">
+        <th style="width: 4rem">
+        </th>
+      </ng-template>
+      <ng-template [ngIf]="(settingTable$|async)?.setting?.selection">
+        <th style="width: 4rem">
+          <p-tableHeaderCheckbox class='checkbox-solid'></p-tableHeaderCheckbox>
+        </th>
+      </ng-template>
+      <th style="width: 1rem;">#</th>
+      <ng-container *ngFor='let column of (settingTable$|async)?.columns'>
+        <th [pSortableColumn]="column?.sort ? column.sort_key||column.field : null" *ngIf="!column?.is_hidden">
+          <label class="d-block" [style.cursor]="column?.sort ? 'pointer':'auto'" [style]="{'text-align': column?.with===0 ? 'center' : 'unset'}">
+            <span>
+              {{(column.label ? ('table.column.'+column.label) : '')|translate}}
+            </span>
+            <ng-template [ngIf]="column?.sort">
+              <ng-template [ngIf]="!filter?.sort?.field" [ngIfElse]="sorted">
+                <i class="sort-icon pi pi-sort-alt"></i>
+              </ng-template>
+              <ng-template #sorted>
+                <i *ngIf="filter?.sort?.type === 1" class="sort-icon pi pi-sort-amount-down-alt animate__animated animate__fadeInDown"></i>
+                <i *ngIf="filter?.sort?.type === -1" class="sort-icon  pi pi-sort-amount-up-alt animate__animated animate__fadeInUp"></i>
+              </ng-template>
+            </ng-template>
+          </label>
+        </th>
+      </ng-container>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-data let-i="rowIndex">
+    <tr (mouseover)="rowIsHover(i)" [pReorderableRow]="i" [ngStyle]="{cursor: (settingTable$|async)?.setting?.clickableRow === false ? 'auto' : 'pointer'}">
+      <ng-template [ngIf]="(loading$|async) === false" [ngIfElse]="skeleton">
+        <ng-template [ngIf]="(settingTable$|async).setting?.reorder && (dataTable$|async)?.length">
+          <td>
+            <span class="pi pi-bars" pReorderableRowHandle></span>
+          </td>
+        </ng-template>
+        <ng-template [ngIf]="(settingTable$|async).setting?.selection">
+          <td>
+            <p-tableCheckbox [value]="data" class='checkbox-solid'></p-tableCheckbox>
+          </td>
+        </ng-template>
+        <td>{{(countFirstRow+i)}}</td>
+      </ng-template>
+      <ng-template #skeleton>
+        <td>
+          <p-skeleton height="2rem"></p-skeleton>
+        </td>
+      </ng-template>
+      <ng-container *ngFor='let column of (settingTable$|async).columns'>
+        <td *ngIf="!column.is_hidden" (click)="clickRow('click', column, data)" [style]="{
+        'min-width': column?.with ? (column.with.toString()+'rem') : 'fit-content',
+        'width': column?.with===0 ? 0 : '-webkit-fill-available',
+        'text-align': column?.with===0 ? 'center' : 'unset',
+        }">
+          <column-renderer [loading$]="loading$" [column]="column" [data]="data" [setting]="(settingTable$|async)?.setting" [index]="i" [hoverIndex]="rowHoverIndex"></column-renderer>
+        </td>
+      </ng-container>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="emptymessage">
+    <tr>
+      <td [colSpan]="colSpanEmptyTAble" translate="feedback.no_result_found"></td>
+    </tr>
+  </ng-template>
+</p-table>
+<ng-template [ngIf]='(settingTable$|async)?.setting?.pagination'>
+  <p-paginator #paginator [showJumpToPageInput]="true" [showPageLinks]="true" [first]="countFirstRow"
+               [showFirstLastIcon]="true" [totalRecords]="totalRecord((settingTable$|async).setting.tableName)|async" [pageLinkSize]='5' [rows]='limit' [rowsPerPageOptions]="[5,10,50,100,500]"
+               (onPageChange)="paginate($event)">
+  </p-paginator>
+</ng-template>
+<ng-content select=".error-message"></ng-content>
+

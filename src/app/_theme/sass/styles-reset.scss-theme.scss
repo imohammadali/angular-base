@@ -1,0 +1,140 @@
+@import "elements/button";
+@import "elements/checkbox";
+@import "elements/radiobutton";
+@import "elements/switch";
+@import "elements/dropdown";
+@import "elements/input";
+@import "elements/badge";
+@import "elements/avatar";
+@import "elements/overlay-panel";
+@import "elements/card";
+@import "elements/tabview";
+@import "elements/divider";
+@import "elements/toast";
+@import "elements/dialog";
+@import "elements/table";
+@import "elements/paginator";
+@import "elements/message";
+@import "elements/progressbar";
+@import "elements/selectbutton";
+@import "elements/spinner";
+@import "elements/editor";
+@import "elements/file-upload";
+@import "elements/auto-complete";
+@import "elements/surface-card";
+@import "elements/list-box";
+@import "elements/accordion";
+@import "elements/calendar";
+@import "elements/tag";
+@import "elements/tree";
+@import "elements/tooltip";
+@import "elements/fieldset";
+@import "elements/chips";
+@import "elements/chip";
+@import "elements/loading";
+@import "elements/skeleton";
+@import "elements/panel";
+@import "elements/image";
+@import "elements/tree-select";
+@import "elements/knob";
+@import "elements/introjs";
+@import "rtl-support";
+@import "variables/colors/default";
+@import "variables/colors/dark";
+@import "../../core/sidebar/sidebar.component";
+@import "../../core/navbar/navbar.component";
+@import "../../core/breadcrumb/breadcrumb.component";
+
+@mixin change-theme() {
+  color: var(--text-primary-color);
+  background-color: var(--other-body_background-color);
+  [class^="icon-"], [class*=" icon-"] {
+    font-size: 24px;
+    //color: var(--icon-color);
+  }
+}
+
+@mixin scroll-bar() {
+  /* width */
+  ::-webkit-scrollbar {
+    width: .4rem;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: var(--other-body_background-color);
+    border-radius: 5px;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: var(--main-secondary-color);
+    border-radius: 5px;
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--contained-hover-bg-secondary-color);
+  }
+}
+
+.p-toggleable-content:not(.ng-animating) {
+  overflow: hidden !important;
+}
+
+@mixin primeng-component-style() {
+  @include button();
+  @include checkbox();
+  @include radio-button();
+  @include switch();
+  @include drop-down();
+  @include input();
+  @include badge();
+  @include avatar();
+  @include overlay-panel();
+  @include card();
+  @include divider();
+  @include tabview();
+  @include toast();
+  @include dialog();
+  @include change-theme();
+  @include scroll-bar();
+  @include navbar();
+  @include breadcrumb();
+  @include sidebar();
+  @include table();
+  @include paginator();
+  @include message();
+  @include tooltip();
+  @include progressbar();
+  @include spinner();
+  @include select-button();
+  @include auto-complete();
+  @include editor();
+  @include file-upload();
+  @include list-box();
+  @include surface-card();
+  @include accordion();
+  @include calendar();
+  @include tag();
+  @include tree();
+  @include fieldset();
+  @include chips();
+  @include chip();
+  @include knob();
+  @include loading();
+  @include skeleton();
+  @include panel();
+  @include tree-select();
+  @include image();
+  @include introjs();
+  @include rtl-theme();
+  .backgroundOverlay {
+    background-color: var(--other-overlay-color);
+  }
+  .p-disabled, .p-component:disabled {
+    opacity: 0.6;
+    pointer-events: none;
+  }
+}
+

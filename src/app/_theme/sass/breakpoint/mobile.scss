@@ -1,0 +1,31 @@
+
+@mixin mobile-breakpoint($max-width) {
+  @media screen and (max-width: $max-width+px) {
+    .main {
+      &-sidebar {
+        margin-inline-start: -20rem !important;
+        min-width: 20rem !important;
+        position: fixed !important;
+        background-color: var(--other-body_background-color);
+        z-index: 2;
+        &.mobile-active {
+          margin-inline-start: 0 !important;
+        }
+      }
+      &-content {
+        padding: 1rem 0.5rem !important;
+      }
+    }
+    .navbar {
+      &-logo {
+        display: none !important;
+      }
+      .toggle-menu {
+        display: none !important;
+        &-mobile {
+          display: block !important;
+        }
+      }
+    }
+  }
+}

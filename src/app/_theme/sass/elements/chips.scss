@@ -1,0 +1,43 @@
+
+$chips-type: 'primary', 'secondary', 'success', 'info', 'warning', 'error';
+
+
+@mixin chips() {
+  .p-chips {
+    &-token {
+      color: var(--common-white);
+      border-radius: .5rem;
+      margin: .2rem 0;
+      margin-inline-end: .5rem;
+      padding: .2rem .5rem;
+      background-color: var(--main-secondary-color);
+      &-label {
+        margin-inline-end: .5rem;
+      }
+    }
+    @each $type in $chips-type {
+      &.chips-#{$type} {
+        .p-chips-token {
+          @if($type=='primary'){
+            background-color: var(--main-primary-color);
+          }
+          @if($type=='secondary'){
+            background-color: var(--main-secondary-color);
+          }
+          @if($type=='success'){
+            background-color: var(--main-success-color);
+          }
+          @if($type=='info'){
+            background-color: var(--main-info-color);
+          }
+          @if($type=='warning'){
+            background-color: var(--main-warning-color);
+          }
+          @if($type=='error'){
+            background-color: var(--main-error-color);
+          }
+        }
+      }
+    }
+  }
+}

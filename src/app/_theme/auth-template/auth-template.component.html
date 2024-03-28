@@ -1,0 +1,33 @@
+<section class="container-fluid h-100 d-flex auth-bg"
+         [style]="{'background-image': (theme$|async)==='dark-theme' ? 'url(' + assetsUrl+'img/auth-dark-bg.jpg' + ')' :
+         'url(' + assetsUrl+'img/auth-bg.jpg' + ')'}">
+  <div class="row justify-content-center align-items-center flex-grow-1">
+    <div class="col-md-10 col-xl-8">
+      <p-card>
+        <div class="row">
+          <div class="col-lg-7">
+            <div class="options" [class.is-dark]="(theme$|async)==='dark-theme'">
+              <p-selectButton styleClass="select-button-small change-lang-input" [ngModel]="language$|async" [options]="optionsLang" optionLabel="label" optionValue="value" (ngModelChange)="changeLang($event)"></p-selectButton>
+              <div class="change-theme-input mx-2" (click)='changeTheme(theme.value)'>
+                <input  #theme [value]="(theme$ | async)" type="hidden" />
+                <i class="pi pi-moon animate__animated animate__fadeInDown" *ngIf="theme.value!=='dark-theme'"></i>
+                <i class="pi pi-sun animate__animated animate__fadeInUp" *ngIf="theme.value==='dark-theme'"></i>
+              </div>
+            </div>
+            <div class="image-side" [style]="{'filter': (theme$|async)==='dark-theme' ? 'brightness(0.6)' : 'none'}"></div>
+          </div>
+          <div class="col-lg-5 my-5">
+            <div class="row justify-content-center">
+              <div class="col-auto d-flex flex-column">
+                <img class="align-self-center" [src]="assetsUrl + (((language$|async)==='fa') ? '/img/logo-1.png' : '/img/logo-1.png')" alt="logo" style="height: 4rem;">
+                <h5 style="text-align: center;" class="my-4">{{ 'auth.title' | translate }}</h5>
+              </div>
+            </div>
+            <router-outlet></router-outlet>
+          </div>
+        </div>
+      </p-card>
+    </div>
+  </div>
+</section>
+

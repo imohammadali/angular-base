@@ -1,0 +1,135 @@
+
+$dialog-type: 'primary', 'secondary', 'success', 'info', 'warning', 'error';
+
+@mixin dialog() {
+  p-dialog {
+    @each $type in $dialog-type {
+      &.#{$type} {
+        @if($type=='primary'){
+          .p-dialog-header {
+            border-top: 7px solid var(--main-primary-color);
+          }
+        }
+        @if($type=='secondary'){
+          .p-dialog-header {
+            border-top: 7px solid var(--main-secondary-color);
+          }
+        }
+        @if($type=='success'){
+          .p-dialog-header {
+            border-top: 7px solid var(--main-success-color);
+          }
+        }
+        @if($type=='info'){
+          .p-dialog-header {
+            border-top: 7px solid var(--main-info-color);
+          }
+        }
+        @if($type=='warning'){
+          .p-dialog-header {
+            border-top: 7px solid var(--main-warning-color);
+          }
+        }
+        @if($type=='error'){
+          .p-dialog-header {
+            border-top: 7px solid var(--main-error-color);
+          }
+        }
+      }
+    }
+    .p-dialog-mask {
+      overflow-y: auto;
+    }
+  }
+  .p-dialog {
+    border-radius: 6px;
+    box-shadow: var(--box-shadow-10);
+    border: 0 none;
+    //overflow-y: auto;
+    .p-float-label, .p-datatable {
+      & > label {
+        background-color: var(--other-paper_card-color);
+      }
+    }
+    .p-dialog-header {
+      border-bottom: 0 none;
+      background: var(--other-paper_card-color);
+      color: var(--text-primary-color);
+      padding: 1.5rem;
+      border-top-right-radius: 3px;
+      border-top-left-radius: 3px;
+      .p-dialog-title {
+        font-size: var(--h6-font-size);
+        font-weight: var(--h6-font-weight);
+        line-height: var(--h6-font-height);
+      }
+      .p-dialog-header-icon {
+        width: 2rem;
+        height: 2rem;
+        color: var(--text-primary-color);
+        border: 0 none;
+        background: transparent;
+        border-radius: 50%;
+        transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
+        margin-right: 0.5rem;
+        &:enabled {
+          &:hover {
+            color: #343a40;
+            border-color: transparent;
+            background: #e9ecef;
+          }
+        }
+        &:focus {
+          outline: 0 none;
+          outline-offset: 0;
+          box-shadow: 0 0 0 0.2rem #BFDBFE;
+        }
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+    .p-dialog-content {
+      background: var(--other-paper_card-color);
+      font-size: var(--body1-font-size);
+      font-weight: var(body1-font-weight);
+      line-height: var(body1-font-height);
+      color: var(--text-primary-color);
+      padding: 0 1.5rem 2rem 1.5rem;
+      overflow-wrap: break-word;
+      overflow-y: initial !important;
+    }
+    .p-dialog-footer {
+      border-top: 0 none;
+      background: var(--other-paper_card-color);
+      color: var(--main-primary-color);
+      padding: 0 1.5rem 1.5rem 1.5rem;
+      text-align: right;
+      border-bottom-right-radius: 6px;
+      border-bottom-left-radius: 6px;
+      button {
+        margin-inline-end: .5rem;
+        width: auto;
+        .p-icon-wrapper, .pi {
+          margin-inline-end: .5rem;
+        }
+      }
+    }
+    &.p-confirm-dialog {
+      .p-dialog-header {
+        border-top: 7px solid var(--main-warning-color);
+        border-top-right-radius: 3px;
+        border-top-left-radius: 3px;
+      }
+      .p-dialog-footer {
+        .p-confirm-dialog-accept {}
+        .p-confirm-dialog-reject {}
+      }
+      .p-confirm-dialog-icon {
+      }
+      .p-confirm-dialog-message {
+        margin-inline-start: 1rem;
+      }
+    }
+  }
+}

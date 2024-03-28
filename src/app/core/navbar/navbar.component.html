@@ -1,0 +1,80 @@
+<div class='navbar'>
+  <p-toolbar #toolbar>
+    <input  #show_sidebar [value]="(show_sidebar$ | async)" type="hidden" />
+    <input  #show_mobile_sidebar [value]="(show_mobile_sidebar$ | async)" type="hidden" />
+    <div class="p-toolbar-group-left">
+      <div class='navbar-logo' style="cursor: pointer;" routerLink="/dashboard/main">
+        logo
+      </div>
+      <i  (click)='toggle_sidebar(show_sidebar.value)' class='icon icon-angle-right toggle-menu' [class.active]='show_sidebar.value==="true"'></i>
+      <i  (click)='toggle_mobile_sidebar(show_mobile_sidebar.value)' class='pi pi-bars toggle-menu-mobile'></i>
+    </div>
+    <div class="p-toolbar-group-right">
+      <input  #theme [value]="(theme$ | async)" type="hidden" />
+      <input  #language [value]="(language$ | async)" type="hidden" />
+      <!-- <img class='mx-3 country' [src]='(assetURL+"img/")+ (language.value==="fa"?"iran":"uk") +".ico"' (click)="opLanguage.toggle($event)"> -->
+
+      <p-selectButton styleClass="select-button-small change-language-input" [ngModel]="language$|async" [options]="optionsLang" optionLabel="label" optionValue="value" (ngModelChange)="changeLanguage($event)"></p-selectButton>
+
+      <i class="pi pi-moon animate__animated animate__fadeInDown" *ngIf="theme.value!=='dark-theme'" (click)='changeTheme(theme.value)'></i>
+      <i class="pi pi-sun animate__animated animate__fadeInUp" *ngIf="theme.value==='dark-theme'" (click)='changeTheme(theme.value)'></i>
+      <ng-template [ngIf]="(notifications$|async)?.length" [ngIfElse]="emptyNotifications">
+        <i class='pi pi-bell animate__animated animate__swing animate__delay-5s badge-info'
+           pBadge [value]="(notifications$|async)?.length.toString()" (click)="opNotification.toggle($event)"></i>
+      </ng-template>
+      <ng-template #emptyNotifications>
+        <i class='pi pi-bell' (click)="opNotification.toggle($event)"></i>
+      </ng-template>
+      <p-overlayPanel #opNotification [appendTo]='toolbar'>
+        <ng-template pTemplate>
+          <div class="row notifications-panel">
+            <div class="col-12 d-flex justify-content-center"><span translate="navbar.notifications"></span></div>
+            <p-divider></p-divider>
+            <div class="col-12">
+              <ng-container *ngFor="let item of notifications$|async">
+                <div class="notifications-panel__item" (click)="setNotificationToRead([item?.id], item?.message)">{{item?.message}}</div>
+              </ng-container>
+            </div>
+            <div class="col-12">
+              <ng-template [ngIf]="(notifications$|async)?.length" [ngIfElse]="emptyNotifications">
+                <button pRipple pButton class="btn btn-primary" (click)="setAllNotificationsToRead()">{{'navbar.all_read'|translate}}</button>
+              </ng-template>
+              <ng-template #emptyNotifications>
+                {{'navbar.empty_notifications'|translate}}
+              </ng-template>
+            </div>
+          </div>
+        </ng-template>
+      </p-overlayPanel>
+      <div class="animate__animated animate__fadeInDown username-color">
+        {{username}}
+      </div>
+
+      <p-avatar class="mx-2" [image]='assetURL+"img/avatar.png"' size="large" shape='circle' (click)="opAvatar.toggle($event)"></p-avatar>
+      <p-overlayPanel #opAvatar [appendTo]='toolbar'>
+        <ng-template pTemplate>
+          <div class='avatar-panel'>
+            <div class='avatar-panel__item'>
+              <span>{{ 'navbar.username' | translate }}: {{username}}</span>
+            </div>
+            <div class='avatar-panel__item' routerLink="/profile" (click)='opAvatar.hide()'>
+              <i class='pi pi-user'></i>
+              <span>{{ 'navbar.profile' | translate }}</span>
+            </div>
+            <div class='avatar-panel__item' routerLink="/profile" (click)='opAvatar.hide()'>
+              <i class='pi pi-key'></i>
+              <span>{{ 'navbar.reset_pass' | translate }}</span>
+            </div>
+            <p-divider></p-divider>
+            <div class='avatar-panel__item' (click)='opAvatar.hide();logOut()'>
+              <i class='pi pi-sign-out'></i>
+              <span>{{ 'navbar.exit' | translate }}</span>
+            </div>
+          </div>
+        </ng-template>
+      </p-overlayPanel>
+
+    </div>
+  </p-toolbar>
+  <p-progressBar [showValue]="false"  [mode]="(show_loading$|async) ? 'indeterminate' : ''"></p-progressBar>
+</div>

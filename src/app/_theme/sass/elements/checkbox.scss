@@ -1,0 +1,82 @@
+
+$checkbox-type: 'primary', 'secondary', 'success', 'info', 'warning', 'error', 'solid';
+$checkbox-size: 'small', 'medium', 'large';
+
+@mixin checkbox() {
+  p-checkbox, p-tableheadercheckbox, p-tableCheckbox, p-tristatecheckbox {
+    margin: 0 .4rem;
+    label {
+      margin-inline-start: .8rem;
+      font-size: var(--body1-font-size);
+      font-weight: var(body1-font-weight);
+      line-height: var(body1-font-height);
+    }
+    @each $type in $checkbox-type {
+      &.checkbox-#{$type} {
+        .p-checkbox {
+          &-box {
+            @if($type=='primary'){
+              background-color: var(--main-primary-color);
+            }
+            @if($type=='secondary'){
+              background-color: var(--main-secondary-color);
+            }
+            @if($type=='success'){
+              background-color: var(--main-success-color);
+            }
+            @if($type=='info'){
+              background-color: var(--main-info-color);
+            }
+            @if($type=='warning'){
+              background-color: var(--main-warning-color);
+            }
+            @if($type=='error'){
+              background-color: var(--main-error-color);
+            }
+            @if($type=='solid'){
+              background-color: unset !important;
+              border: 1px solid var(--other-outline_border-color);
+            }
+          }
+          &-icon {
+            @if($type=='solid'){
+              color: 2px solid var(--other-outline_border-color) !important;
+            } @else {
+              color: var(--main-contrast-color);
+            }
+          }
+        }
+      }
+    }
+    @each $size in $checkbox-size {
+      &.checkbox-#{$size} {
+        .p-checkbox {
+          &-box {
+            @if($size=='small'){
+              width: 1.4rem;
+              height: 1.4rem;
+            }
+            @if($size=='medium'){
+              width: 1.6rem;
+              height: 1.6rem;
+            }
+            @if($size=='large'){
+              width: 1.7rem;
+              height: 1.7rem;
+            }
+          }
+        }
+      }
+    }
+  }
+  .p-checkbox {
+    &-box {
+      background-color: unset !important;
+      border: 1px solid var(--other-outline_border-color);
+      width: 1.6rem;
+      height: 1.6rem;
+      padding: .7rem;
+      border-radius: .3rem;
+    }
+  }
+}

@@ -1,0 +1,38 @@
+
+.main {
+  display: flex;
+  height: inherit;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-bottom: 5rem;
+  animation-delay: .3s;
+  &-sidebar {
+    transition: 400ms ease-in-out;
+    max-width: 24rem;
+    min-width: 20rem;
+    margin-inline-start: -20rem;
+    position: sticky;
+    top: 0;
+    &.active {
+      margin-inline-start: 0;
+    }
+    //width: 24rem
+  }
+  &-content {
+    //overflow-y: auto;
+    //overflow-x: hidden;
+    padding: 1rem 2rem;
+    flex-grow: 1;
+    height: fit-content;
+    width: 1rem;
+  }
+  .backgroundOverlay {
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    display:block;
+    z-index: 1;
+  }
+}

@@ -1,0 +1,112 @@
+@mixin typography-en-iransans() {
+
+  --font-family: IRANSansX;
+
+  // start typography //
+  --h1-font-size: 96px;
+  --h1-font-height: 112px;
+  --h1-font-weight: 300px;
+
+  --h2-font-size: 60px;
+  --h2-font-height: 72px;
+  --h2-font-weight: 300px;
+
+  --h3-font-size: 48px;
+  --h3-font-height: 56px;
+  --h3-font-weight: 400px;
+
+  --h4-font-size: 34px;
+  --h4-font-height: 42px;
+  --h4-font-weight: 400px;
+
+  --h5-font-size: 24px;
+  --h5-font-height: 32px;
+  --h5-font-weight: 500px;
+
+  --h6-font-size: 20px;
+  --h6-font-height: 28px;
+  --h6-font-weight: 500px;
+
+  --sub_title1-font-size: 16px;
+  --sub_title1-font-height: 28px;
+  --sub_title1-font-weight: 400px;
+
+  --sub_title2-font-size: 14px;
+  --sub_title2-font-height: 22px;
+  --sub_title2-font-weight: 500px;
+
+  --body1-font-size: 14px;
+  --body1-font-height: 24px;
+  --body1-font-weight: 400px;
+
+  --body2-font-size: 14px;
+  --body2-font-height: 20px;
+  --body2-font-weight: 400px;
+
+  --caption-font-size: 12px;
+  --caption-font-height: 19.9px;
+  --caption-font-weight: 400px;
+
+  --overline-font-size: 12px;
+  --overline-font-height: 31.9px;
+  --overline-font-weight: 400px;
+
+  --button_large-font-size: 15px;
+  --button_large-font-height: 26px;
+  --button_large-font-weight: 500px;
+
+  --button_medium-font-size: 14px;
+  --button_medium-font-height: 24px;
+  --button_medium-font-weight: 500px;
+
+  --button_small-font-size: 13px;
+  --button_small-font-height: 22px;
+  --button_small-font-weight: 500px;
+
+  --input_label-font-size: 12px;
+  --input_label-font-height: 12px;
+  --input_label-font-weight: 400px;
+
+  --helper_text-font-size: 12px;
+  --helper_text-font-height: 20px;
+  --helper_text-font-weight: 400px;
+
+  --input_text-font-size: 16px;
+  --input_text-font-height: 24px;
+  --input_text-font-weight: 400px;
+
+  --avatar_initials-font-size: 20px;
+  --avatar_initials-font-height: 20px;
+  --avatar_initials-font-weight: 400px;
+
+  --chip-font-size: 13px;
+  --chip-font-height: 18px;
+  --chip-font-weight: 400px;
+
+  --tooltip-font-size: 14px;
+  --tooltip-font-height: 14px;
+  --tooltip-font-weight: 500px;
+
+  --alert_title-font-size: 16px;
+  --alert_title-font-height: 24px;
+  --alert_title-font-weight: 500px;
+
+  --table_header-font-size: 14px;
+  --table_header-font-height: 24px;
+  --table_header-font-weight: 500px;
+
+  --badge_label-font-size: 12px;
+  --badge_label-font-height: 20px;
+  --badge_label-font-weight: 400px;
+
+  --message_label-font-size: 12px;
+  --message_label-font-height: 20px;
+  --message_label-font-weight: 500px;
+
+  --toast-font-size: 12px;
+  --toast-font-height: 20px;
+  --toast-font-weight: 500px;
+
+  // end typography //
+
+}

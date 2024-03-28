@@ -1,0 +1,155 @@
+
+@mixin surface-card() {
+  .surface-card {
+    margin: .2rem 0;
+    animation: bounceInDown;
+    animation-duration: 1s;
+    &.type1 {
+      position: relative;
+      padding: 1rem 1rem;
+      min-width: 10rem;
+      display: flex;
+      flex-direction: column;
+      border-radius: .4rem;
+      box-shadow: var(--box-shadow-3);
+      border: 1px solid #ccc;
+      i {
+        position: absolute;
+        inset-block: .6rem;
+        inset-inline-end: .6rem;
+        font-size: 1.5rem;
+        height: fit-content;
+        padding: .8rem;
+        border-radius: .4rem;
+        background: var(--main-secondary-color);
+        &.success {
+          background: var(--main-success-color);
+        }
+        &.danger {
+          background: var(--main-error-color);
+        }
+        &.warning {
+          background: var(--main-warning-color);
+        }
+        &.info {
+          background: var(--main-info-color);
+        }
+        &.indigo {
+          background: var(--bs-indigo);
+        }
+        color: var(--common-white);
+      }
+
+      label {
+        font-size: var(--h6-font-size);
+        font-weight: var(--h6-font-weight);
+        line-height: var(--h6-font-height);
+        color: var(--text-secondary-color);
+        margin-block-end: .5rem;
+      }
+
+      span {
+        font-size: var(--h5-font-size);
+        font-weight: var(--h5-font-weight);
+        line-height: var(--h5-font-height);
+      }
+
+    }
+    &.type2 {
+      position: relative;
+      padding: 1rem 1rem;
+      min-width: 10rem;
+      display: flex;
+      flex-direction: column;
+      border-radius: .4rem;
+      box-shadow: var(--box-shadow-3);
+      border: 1px solid var(--paper-border);
+      &.primary {
+        background: linear-gradient(-20deg, var(--contained-hover-bg-primary-color) 0%, var(--main-primary-color) 100%);
+      }
+      &.success {
+        background: linear-gradient(-20deg, var(--contained-hover-bg-success-color) 0%, var(--main-success-color) 100%);
+      }
+      &.danger {
+        background: linear-gradient(-20deg, var(--contained-hover-bg-error-color) 0%, var(--main-error-color) 100%);
+
+      }
+      &.warning {
+        background: linear-gradient(-20deg, var(--contained-hover-bg-warning-color) 0%, var(--main-warning-color) 100%);
+
+      }
+      &.info {
+        background: linear-gradient(-20deg, var(--contained-hover-bg-info-color) 0%, var(--main-info-color) 100%);
+      }
+      &.indigo {
+        background: linear-gradient(-20deg, #6610F2FF 0%, #8b44fd 100%);
+      }
+      &.secondary {
+        background: linear-gradient(-20deg, var(--contained-hover-bg-secondary-color) 0%, var(--main-secondary-color) 100%);
+      }
+      i {
+        position: absolute;
+        inset-block: .6rem;
+        inset-inline-end: .6rem;
+        font-size: 1.3rem;
+        height: fit-content;
+        padding: .8rem;
+        border-radius: .4rem;
+        color: var(--common-white);
+      }
+
+      label {
+        margin-block-end: .5rem;
+        color: var(--common-white);
+      }
+
+      span {
+        font-size: var(--h6-font-size);
+        font-weight: var(--h6-font-weight);
+        line-height: var(--h6-font-height);
+        color: var(--common-white);
+      }
+    }
+    &.type3 {
+      position: relative;
+      padding: .5rem 1rem;
+      display: flex;
+      flex-direction: column;
+      border-radius: .4rem;
+      box-shadow: var(--box-shadow-3);
+      border: 1px solid var(--paper-border);
+      &.success {
+        background: var(--main-success-color);
+        background: linear-gradient(-20deg, var(--contained-hover-bg-success-color) 0%, var(--main-success-color) 100%);
+      }
+      &.danger {
+        background: linear-gradient(-20deg, var(--contained-hover-bg-error-color) 0%, var(--main-error-color) 100%);
+
+      }
+      &.warning {
+        background: linear-gradient(-20deg, var(--contained-hover-bg-warning-color) 0%, var(--main-warning-color) 100%);
+
+      }
+      &.info {
+        background: linear-gradient(-20deg, var(--contained-hover-bg-info-color) 0%, var(--main-info-color) 100%);
+      }
+      &.indigo {
+        background: linear-gradient(-20deg, #6610F2FF 0%, #8b44fd 100%);
+      }
+      &.secondary {
+        background: linear-gradient(-20deg, var(--contained-hover-bg-secondary-color) 0%, var(--main-secondary-color) 100%);
+      }
+      label {
+        color: var(--common-white);
+        text-align: center;
+      }
+      span {
+        //font-size: var(--h6-font-size);
+        //font-weight: var(--h6-font-weight);
+        //line-height: var(--h6-font-height);
+        color: var(--common-white);
+        text-align: center;
+      }
+    }
+  }
+}

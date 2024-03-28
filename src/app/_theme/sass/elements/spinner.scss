@@ -1,0 +1,14 @@
+
+@mixin spinner() {
+  p-progressspinner {
+    .p-progress-spinner {
+      width: 1.5rem;
+      height: 1.5rem;
+      display: block;
+      &-circle {
+        animation: none;
+        stroke: var(--common-white);
+      }
+    }
+  }
+}

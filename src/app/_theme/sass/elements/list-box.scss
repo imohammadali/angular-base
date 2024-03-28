@@ -1,0 +1,27 @@
+
+$list-box-type: 'primary', 'secondary', 'success', 'info', 'warning', 'error';
+
+@mixin list-box() {
+  ul {
+    &.list-box {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      li {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        padding: .8rem;
+        &:nth-child(even) {
+          background-color: var(--action-hover-color);
+        }
+        label {
+          margin-inline-end: 1rem;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,58 @@
+@mixin image() {
+  p-image {
+
+    .p-image {
+      &-mask {
+        background: var(--other-overlay-color);
+      }
+
+      &-preview-container {
+        &.rounded {
+          > img, .p-image-preview-indicator {
+            border-radius: 50%;
+          }
+        }
+      }
+
+      &-preview-indicator {
+        background-color: transparent;
+        color: var(--common-white);
+        transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
+      }
+
+      &-preview-container:hover > .p-image-preview-indicator {
+        background-color: rgba(0, 0, 0, 0.5);
+      }
+
+      &-toolbar {
+        padding: 1rem;
+      }
+
+      &-action.p-link {
+        color: var(--common-white);
+        background-color: transparent;
+        width: 3rem;
+        height: 3rem;
+        border-radius: 50%;
+        transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
+        margin-right: 0.5rem;
+      }
+      &-action.p-link:last-child {
+        margin-right: 0;
+      }
+      &-action.p-link:hover {
+        color: var(--common-white);
+        background-color: rgba(255, 255, 255, 0.1);
+      }
+      &-action.p-link i {
+        font-size: 1.5rem;
+      }
+      &-action.p-link .p-icon {
+        width: 1.5rem;
+        height: 1.5rem;
+      }
+    }
+
+
+  }
+}

@@ -1,0 +1,27 @@
+
+@mixin breadcrumb() {
+  .p-breadcrumb {
+    padding: 1.4rem 0;
+    .p-menuitem {
+      &-link {
+        color: var(--text-secondary-color);
+        font-size: var(--body1-font-size);
+        font-weight: var(--body1-font-weight);
+        line-height: var(--body1-font-height);
+        padding: 0 0.5rem;
+      }
+    }
+    ul li {
+      .p-icon-wrapper {
+        font-size: 1.2rem;
+      }
+      &:last-child {
+        .p-menuitem-link {
+          color: var(--text-primary-color);
+          animation: fadeIn;
+          animation-duration: .5s;
+        }
+      }
+    }
+  }
+}

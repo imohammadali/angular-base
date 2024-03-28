@@ -1,0 +1,236 @@
+{
+  "notify": {
+    "success": {
+      "title": "{{ operation.title }} {{ entity }}",
+      "message": "{{ name }} {{ operation.message }} successfully"
+    },
+    "operation-success": {
+      "title": "Success",
+      "message": "Operation successfully completed"
+    },
+    "request": {
+      "title": "Wait",
+      "message": "Requesting"
+    },
+    "select-store": {
+      "title": "Select Store",
+      "message": "You must select a store"
+    },
+    "login-required": {
+      "title": "Login Required",
+      "message": "You most login first"
+    },
+    "login-error": {
+      "title": "Login Error",
+      "message": "Username and password do not match"
+    },
+    "no-file": {
+      "title": "file",
+      "message": "Choose File Necessary"
+    },
+    "captcha-error": {
+      "title": "Captcha Error",
+      "message": "Captcha match"
+    },
+    "super-user-error": {
+      "title": "Panel Login Error",
+      "message": "You can not login this panel"
+    },
+    "login-success": {
+      "title": "Login Success",
+      "message": "You are successfully logged in"
+    },
+    "register-success": {
+      "title": "Register Success",
+      "message": "You are successfully registered"
+    },
+    "reset-pass-success": {
+      "title": "Change Password Success",
+      "message": "You're password changed successfully"
+    },
+    "forget-pass-success": {
+      "title": "Send Code Success",
+      "message": "An Code sent to you"
+    },
+    "forget-pass-error": {
+      "title": "Incorrect verification code",
+      "message": "The verification code entered is incorrect."
+    },
+    "upload-type-error": {
+      "title": "File Type Error",
+      "message": "\"{{ fileName }}\" is not acceptable"
+    },
+    "upload-size-error": {
+      "title": "File Size Error",
+      "message": "Size of \"{{ fileName }}\" is over limit"
+    },
+    "select-image-overlimit": {
+      "title": "Select Image Overlimit",
+      "message": "You cant select more than {{ countLimit }} images"
+    },
+    "delete-submenus-first": {
+      "title": "Delete is not possible",
+      "message": "You must delete submenus first"
+    },
+    "duplicate_parent_name": {
+      "title": "Duplicate paren name",
+      "message": "The parent name is taken"
+    },
+    "duplicate_child_name": {
+      "title": "Duplicate child name",
+      "message": "The child name is taken"
+    },
+    "wrong-file": {
+      "title": "Something went wrong",
+      "message": "The file had problem"
+    },
+    "read": "Read",
+    "unread": "Unread",
+    "list": "Notification list",
+    "sender": "Sender",
+    "message": "Message",
+    "status": "Status",
+    "created": "Created",
+    "is_read": "Is Read",
+    "receiverNotif": "Receive Notification",
+    "sched": "schedule date time",
+    "date": "Date",
+    "senderNotif": "Send Notification",
+    "receiver": "Receiver",
+    "mark-as-read": "Mark as read"
+  },
+  "breadcrumb": {},
+  "sidebar": {
+  },
+  "navbar": {
+    "exit": "Exit",
+    "reset_pass": "تغییر رمز عبور",
+    "profile": "Profile",
+    "notifications": "Notifications",
+    "all_read": "Mark all as read",
+    "empty_notifications": "No Notifications Found",
+    "username": "Username"
+  },
+  "table": {
+    "column": {
+    }
+  },
+  "auth": {
+    "username": "Username",
+    "password": "Password",
+    "confirm_password": "Confirm Password",
+    "current_password": "Current Password",
+    "new_password": "New Password",
+    "sign_in": "Sign In",
+    "captcha": "Enter Captcha",
+    "forget_password": "Forget Password",
+    "sign-in-userpass": "Sign In With Username & Password",
+    "sign-in-oneTimePass": "Sign In With OTP",
+    "change_password": "Change Password",
+    "sms": "Receive a one-time password via SMS",
+    "email": "Receive a one-time password via email",
+    "login": "Login",
+    "USER_INVALID": "User is Invalid",
+    "profile": "Profile",
+    "fullname": "FullName",
+    "cellphone": "Cellphone",
+    "email_address": "Email"
+  },
+  "dashboard": {
+    "title": "داشبورد"
+  },
+  "feedback": {
+    "required": "This field is required",
+    "email": "Email is not correct",
+    "min-length": "The number of characters is small",
+    "maxLength": "Maximum {{ length }} char allowed",
+    "min": "Minimum {{ min }} allowed",
+    "max": "Maximum {{ max }} char allowed",
+    "done_successfully": "Done Successfully",
+    "created_successfully": "Created Successfully",
+    "updated_successfully": "Updated Successfully",
+    "deleted_successfully": "Deleted Successfully",
+    "uploaded_successfully": "Uploaded Successfully",
+    "sent_successfully": "Send Successfully",
+    "enabled_successfully": "Enabled Successfully",
+    "disabled_successfully": "Disabled Successfully",
+    "done_successfully_entity": "Done Successfully {{ entity }}",
+    "created_successfully_entity": "Created Successfully {{ entity }}",
+    "updated_successfully_entity": "Updated Successfully {{ entity }}",
+    "deleted_successfully_entity": "Deleted Successfully {{ entity }}",
+    "uploaded_successfully_entity": "Uploaded Successfully {{ entity }}",
+    "sent_successfully_entity": "Send Successfully {{ entity }}",
+    "enabled_successfully_entity": "Enabled Successfully {{ entity }}",
+    "disabled_successfully_entity": "Disabled Successfully {{ entity }}",
+    "warn_delete": "Do you want to delete this item?",
+    "are_you_sure": "are you sure?",
+    "login_success": "Login Successful",
+    "login_error": "The username or password is incorrect",
+    "match_error_password": "Confirm and password not match",
+    "no_result_found": "There is nothing to display",
+    "Send to": "Code sent successfully",
+    "unknown_error": "Unknown error",
+    "upload_failed": "Upload Failed",
+    "error_500": "Server Error",
+    "yes": "Yes",
+    "no": "No",
+    "pattern": "The entered value is not correct",
+    "least": "At least {{ least }} characters are required",
+    "notmatch": "Password does not match",
+    "number": "Incorrect number",
+    "product_variant_error": "You must enter at least one type",
+    "low_number": "Must be at least {{ num }}",
+    "big_number": "Must be maximum {{ num }}",
+    "notEqual": "customer role is not equal to customer user",
+    "duplicateUsername": "Duplicate Username",
+    "old_pass": "Old Password Is Invalid",
+    "wrong_captcha": "Captcha Is Wrong",
+    "low_password": "Password must contains lowercase character",
+    "num_password": "Password must contains number character",
+    "up_password": "password must contains uppercase character",
+    "len_password": "Password length is less than 8",
+    "parent_error": "Parent Not Correct",
+    "first_select_page": "First Add Page Field",
+    "list_length_required": "Add one Item to list is required",
+    "first_select_field": "First, complete the {{field}} field",
+    "sample_email": "Example : test@gmail.com",
+    "sample_cellphone": "Example : 09120001234",
+    "warning": "Warning",
+    "successful": "Successful",
+    "done": "Done",
+    "not_done": "Undone",
+    "failed": "Failed",
+    "failed2": "Failed",
+    "access_error": "Access error",
+    "today": "Today",
+    "next_day": "Next Day",
+    "next_week": "Next Week",
+    "next_month": "Next Month",
+    "previous_day": "Previous Day",
+    "previous_week": "Previous Week",
+    "previous_month": "Previous Month",
+    "loading": "Loading"
+  },
+  "forms": {
+    "create": "Create",
+    "save": "Save",
+    "edit": "Edit",
+    "cancel": "Cancel",
+    "back": "Back",
+    "delete": "Delete",
+    "change": "Change",
+    "search": "Search",
+    "search_to": "Search by {{field}}",
+    "sample-file": "Download Sample File",
+    "submit": "Submit",
+    "add": "Add",
+    "close": "Close",
+    "show": "View",
+    "from_date": "From Date",
+    "to_date": "To Date",
+    "filter": "Filter",
+    "download": "Download",
+    "send": "Send"
+  }
+}
+

@@ -1,0 +1,115 @@
+
+$dropdown-size: 'small', 'medium', 'large';
+
+@mixin auto-complete() {
+  .p-float-label, .p-datatable, .p-overlay-content {
+    & > label {
+      inset-inline-start: .8rem;
+      background-color: var(--paper-bg-color);
+      font-size: var(--input_label-font-size);
+      font-weight: var(--input_label-font-weight);
+      line-height: var(--input_label-font-height);
+      color: var(--text-secondary-color);
+      padding: 0 .8rem;
+      transition: var(--transition);
+    }
+    .p-inputwrapper {
+      width: 100%;
+      &-focus {
+        .p-button-icon-only {
+          color: var(--main-primary-color) !important;
+        }
+        .p-autocomplete {
+          border-color: var(--main-primary-color) !important;
+          &-trigger {
+            color: var(--main-primary-color);
+          }
+        }
+        &~label {
+          color: var(--main-primary-color);
+        }
+      }
+      &.outline {
+        .p-autocomplete, .p-inputtext {
+          border: unset;
+          border-bottom: 1px solid var(--other-outline_border-color);
+          border-radius: unset;
+        }
+      }
+      &:has(.p-inputwrapper-filled, .p-inputwrapper-focus) {
+        &~label {
+          top: 0;
+          inset-inline-start: 1rem;
+          transition: 100ms ease-in-out;
+        }
+      }
+      //&-focus, &-filled {
+      //  &~label {
+      //    top: 0;
+      //    inset-inline-start: 1rem;
+      //    transition: 100ms ease-in-out;
+      //  }
+      //}
+    }
+    .p-autocomplete {
+      border: 1px solid var(--other-outline_border-color);
+      font-size: var(--input_text-font-size);
+      font-weight: var(--input_text-font-weight);
+      line-height: var(--input_text-font-height);
+      color: var(--text-primary-color);
+      border-radius: .6rem;
+      width: 100%;
+      &-panel {
+        border-radius: .8rem;
+        border: 1px solid var(--other-outline_border-color);
+        box-shadow: var(--box-shadow-1);
+      }
+      &-multiple-container {
+        .p-autocomplete {
+          &-input-token input {
+            color: var(--text-primary-color);
+          }
+          &-token {
+            margin-inline-end: 0.6rem;
+            margin-block-start: 0.2rem;
+            background-color: var(--action-selected-color);
+            padding: 0.3rem;
+            border-radius: 0.3rem;
+            color: var(--text-primary-color);
+            &-label {
+              margin-inline-end: 0.5rem;
+            }
+          }
+        }
+      }
+      .p-autocomplete-items {
+        background-color: var(--paper-bg-color);
+        font-size: var(--input_text-font-size);
+        font-weight: var(--input_text-font-weight);
+        line-height: var(--input_text-font-height);
+        color: var(--text-primary-color);
+        .p-autocomplete-item {
+          padding: .7rem .7rem;
+          border-radius: .6rem;
+          &:hover {
+            background: var(--custom-primary-color);
+            transition: var(--transition);
+          }
+        }
+      }
+      .p-button-icon-only {
+        border: 0;
+        background: transparent;
+        padding: 0 1rem;
+        color: var(--text-primary-color);
+      }
+      &-trigger {
+        color: var(--action-active-color);
+        padding: 0 1.2rem;
+      }
+      .p-inputtext {
+        border: unset;
+      }
+    }
+  }
+}

@@ -1,0 +1,57 @@
+@mixin tooltip() {
+
+  .p-tooltip {
+    .p-tooltip-text {
+      background: var(--main-primary-color);
+      color: var(--text-primary-light-mode);
+      padding: .5rem;
+      box-shadow: var(--box-shadow-1);
+      border-radius: 6px;
+    }
+    &.p-tooltip-right {
+      .p-tooltip-arrow {
+        border-right-color: var(--main-primary-color);
+        inset-inline-end: -0.2rem !important;
+        margin-top: -0.5rem !important;
+      }
+      .p-tooltip-text {
+        margin-inline-end: .5rem;
+      }
+    }
+    &.p-tooltip-left {
+      .p-tooltip-arrow {
+        border-left-color: var(--main-primary-color);
+        inset-inline-start: -0.2rem !important;
+        margin-top: -0.5rem !important;
+      }
+      .p-tooltip-text {
+        margin-inline-start: .5rem;
+      }
+    }
+    &.p-tooltip-top {
+      .p-tooltip-arrow {
+        border-top-color: var(--main-primary-color);
+        inset-block-end: -0.7rem !important;
+        margin-inline-end: -0.5rem !important;
+      }
+      .p-tooltip-text {
+        margin-block-start: .5rem;
+      }
+    }
+    &.p-tooltip-bottom {
+      .p-tooltip-arrow {
+        border-bottom-color: var(--main-primary-color);
+        inset-block-start: -.7rem !important;
+        margin-inline-end: -0.5rem !important;
+      }
+      .p-tooltip-text {
+      }
+    }
+    .p-tooltip-arrow {
+      border-width: 0.5rem;
+    }
+  }
+
+
+
+}

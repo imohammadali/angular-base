@@ -1,0 +1,83 @@
+
+$divider-type: 'primary', 'secondary', 'success', 'info', 'warning', 'error';
+
+@mixin divider() {
+  .p-divider {
+    .p-divider-content {
+      background-color: var(--paper-bg-color);
+      color: var(--text-secondary-color);
+    }
+    &.p-divider-horizontal {
+      margin: 1.25rem 0;
+      padding: 0 1.25rem;
+      &:before {
+        border-top-width: 1px;
+      }
+      .p-divider-content {
+        padding: 0 0.5rem;
+      }
+    }
+    &.p-divider-vertical {
+      margin: 0 1.25rem;
+      padding: 1.25rem 0;
+      &:before {
+        border-left-width: 1px;
+      }
+      .p-divider-content {
+        padding: 0.5rem 0;
+      }
+    }
+  }
+  @each $type in $divider-type {
+    .divider-#{$type} {
+      @if($type=='primary'){
+        &::before {
+          border-block-start-color: var(--main-primary-color);
+          .p-divider-content {
+            color: var(--main-primary-color);
+          }
+        }
+      }
+      @if($type=='secondary'){
+        &::before {
+          border-block-start-color: var(--main-secondary-color);
+          .p-divider-content {
+            color: var(--main-secondary-color);
+          }
+        }
+      }
+      @if($type=='success'){
+        &::before {
+          border-block-start-color: var(--main-success-color);
+          .p-divider-content {
+            color: var(--main-success-color);
+          }
+        }
+      }
+      @if($type=='info'){
+        &::before {
+          border-block-start-color: var(--main-info-color);
+          .p-divider-content {
+            color: var(--main-info-color);
+          }
+        }
+      }
+      @if($type=='warning'){
+        &::before {
+          border-block-start-color: var(--main-warning-color);
+          .p-divider-content {
+            color: var(--main-warning-color);
+          }
+        }
+      }
+      @if($type=='error'){
+        &::before {
+          border-block-start-color: var(--main-error-color);
+          .p-divider-content {
+            color: var(--main-error-color);
+          }
+        }
+      }
+    }
+  }
+}

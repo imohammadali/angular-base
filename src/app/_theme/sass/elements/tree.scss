@@ -1,0 +1,167 @@
+
+@mixin tree() {
+  p-tree {
+    width: 100%;
+    .p-tree {
+      //max-height: calc(100vh - 12rem);
+      //overflow: auto;
+      &-container {
+        .p-treenode {
+          cursor: pointer;
+          &-content {
+            padding: .2rem 0;
+            .p-tree-toggler {
+              //padding: .2rem;
+              color: var(--text-primary-color);
+            }
+            .p-treenode-label {
+              padding-inline-end: .5rem;
+              width: 100%;
+              direction: ltr;
+            }
+          }
+          &-children {
+            margin-inline-start: .4rem;
+            padding-inline-start: .5rem;
+            border-inline-start: 1px solid var(--main-secondary-color)
+          }
+        }
+      }
+    }
+
+
+
+
+    .p-tree {
+      .p-tree-container .p-treenode {
+        padding: 0.143rem;
+        .p-treenode-content {
+          border-radius: 6px;
+          transition: box-shadow 0.2s;
+          //padding: 0.5rem;
+          .p-tree-toggler {
+            //margin-right: 0.5rem;
+            //width: 2rem;
+            height: 2rem;
+            border: 0 none;
+            background: transparent;
+            border-radius: 50%;
+            transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
+            &:enabled:hover {
+              color: var(--text-primary-color);
+              border-color: transparent;
+              background: var(--outlined-hover-bg-primary-color);
+            }
+            &:focus {
+              outline: 0 none;
+              outline-offset: 0;
+              box-shadow: 0 0 0 0.2rem #BFDBFE;
+            }
+          }
+          .p-treenode-icon {
+            margin-right: 0.5rem;
+            color: #6c757d;
+          }
+          .p-checkbox {
+            margin-right: 0.5rem;
+            .p-indeterminate .p-checkbox-icon {
+              color: #495057;
+            }
+          }
+          &:focus {
+            outline: 0 none;
+            outline-offset: 0;
+            box-shadow: inset 0 0 0 0.15rem #BFDBFE;
+          }
+          &.p-highlight {
+            background: var(--outlined-resting-bg-primary-color);
+            color: var(--text-primary-color);
+            .actions {
+              display: flex !important;
+            }
+            .p-tree-toggler, .p-treenode-icon {
+              //color: #1D4ED8;
+              &:hover {
+                //color: #1D4ED8;
+              }
+            }
+          }
+          &.p-treenode-selectable:not(.p-highlight):hover {
+            background: var(--action-hover-color);;
+            color: var(--text-primary-color);
+            .actions {
+              display: flex !important;
+              transition: var(--transition);
+            }
+          }
+          &.p-treenode-dragover {
+            background: var(--action-hover-color);;
+            color: var(--text-primary-color);
+          }
+        }
+      }
+      .p-tree-filter-container {
+        padding: .5rem;
+        margin-bottom: 0.5rem;
+        .p-tree-filter {
+          padding-right: 1.75rem;
+          &-icon {
+            inset-inline-end: 1.5rem;
+          }
+        }
+      }
+      .p-treenode-children {
+        padding-inline-end: 1rem;
+      }
+      .p-tree-loading-icon {
+        font-size: 2rem;
+        &.p-icon {
+          width: 2rem;
+          height: 2rem;
+        }
+      }
+      .p-treenode-droppoint.p-treenode-droppoint-active {
+        background-color: #8cbeff;
+      }
+      &.p-tree-horizontal .p-treenode .p-treenode-content {
+        border-radius: 6px;
+        border: 1px solid #dee2e6;
+        background-color: #ffffff;
+        color: #495057;
+        padding: 0.5rem;
+        transition: box-shadow 0.2s;
+        &.p-highlight {
+          background-color: #EFF6FF;
+          color: #1D4ED8;
+          .p-treenode-icon {
+            color: #1D4ED8;
+          }
+        }
+        .p-tree-toggler {
+          margin-right: 0.5rem;
+        }
+        .p-treenode-icon {
+          color: #6c757d;
+          margin-right: 0.5rem;
+        }
+        .p-checkbox {
+          margin-right: 0.5rem;
+        }
+        .p-treenode-label:not(.p-highlight):hover {
+          background-color: inherit;
+          color: inherit;
+        }
+        &.p-treenode-selectable:not(.p-highlight):hover {
+          background: #e9ecef;
+          color: #495057;
+        }
+        &:focus {
+          outline: 0 none;
+          outline-offset: 0;
+          box-shadow: 0 0 0 0.2rem #BFDBFE;
+        }
+      }
+    }
+
+  }
+}
