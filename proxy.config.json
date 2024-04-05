@@ -1,6 +1,6 @@
 {
   "/api/*": {
-    "target": "https://emp.mtnirancell.ir",
+    "target": "https://test.ir",
     "secure": false,
     "changeOrigin": true,
     "logLevel": "debug",

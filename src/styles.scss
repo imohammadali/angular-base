@@ -8,13 +8,6 @@
 @import 'app/_theme/sass/variables/typography/fa/iransans';
 @import 'app/_theme/sass/variables/typography/en/iransans';
 
-@import 'bootstrap/scss/functions';
-@import 'bootstrap/scss/variables';
-@import 'bootstrap/scss/mixins';
-@import 'bootstrap/scss/bootstrap-reboot';
-@import 'bootstrap/scss/bootstrap-grid';
-@import 'bootstrap/scss/utilities';
-@import "bootstrap-icons/font/bootstrap-icons.css";
 
 @import 'codemirror/lib/codemirror';
 @import 'codemirror/theme/material';
@@ -103,5 +96,6 @@ html, body {
 .mapboxgl-marker {
     cursor: pointer;
 }
-
+@tailwind components;
+@tailwind utilities;
 
