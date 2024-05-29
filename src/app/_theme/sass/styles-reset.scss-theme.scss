@@ -47,7 +47,6 @@
 
 @mixin change-theme() {
   color: var(--text-primary-color);
-  background-color: var(--other-body_background-color);
   [class^="icon-"], [class*=" icon-"] {
     font-size: 24px;
     //color: var(--icon-color);

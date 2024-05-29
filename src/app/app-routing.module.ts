@@ -13,8 +13,14 @@ export const routes: Routes = [
     children: [
       {
         path: '',
-        redirectTo: 'dashboard/main',
+        redirectTo: 'dashboard',
         pathMatch: 'full',
+      },
+      {
+        path: 'dashboard',
+
+        loadChildren: () =>
+          import('./pages/dashboard/dashboard.module').then((m) => m.DashboardModule),
       },
     ]
   },

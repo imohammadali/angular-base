@@ -1,38 +1,46 @@
-
 .main {
   display: flex;
   height: inherit;
   overflow-y: auto;
   overflow-x: hidden;
   padding-bottom: 5rem;
-  animation-delay: .3s;
+  animation-delay: 0.3s;
   &-sidebar {
-    transition: 400ms ease-in-out;
-    max-width: 24rem;
-    min-width: 20rem;
-    margin-inline-start: -20rem;
+    transition: all 0.2s;
+    // margin-inline-start: -20rem;
     position: sticky;
     top: 0;
-    &.active {
-      margin-inline-start: 0;
+    &.deactive {
+      // margin-inline-start: 0;
+      //transform: translateX(-1rem);
+      flex: 0 0 80px;
+      max-width: 80px;
+      min-width: 80px;
+      width: 80px;
     }
-    //width: 24rem
+    &.active {
+      flex: 0 0 200px;
+      max-width: 200px;
+      min-width: 200px;
+      width: 200px;
+      // margin-inline-start: 0;
+      //transform: translateX(0);
+    }
   }
   &-content {
-    //overflow-y: auto;
-    //overflow-x: hidden;
-    padding: 1rem 2rem;
     flex-grow: 1;
-    height: fit-content;
-    width: 1rem;
+    background-color: #ededed;
+  }
+  .have_padding{
+    padding: 1rem 2rem;
   }
   .backgroundOverlay {
-    position:fixed;
-    top:0;
-    left:0;
-    right:0;
-    bottom:0;
-    display:block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: block;
     z-index: 1;
   }
 }

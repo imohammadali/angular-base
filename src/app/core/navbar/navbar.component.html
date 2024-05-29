@@ -19,11 +19,11 @@
       <i class="pi pi-moon animate__animated animate__fadeInDown" *ngIf="theme.value!=='dark-theme'" (click)='changeTheme(theme.value)'></i>
       <i class="pi pi-sun animate__animated animate__fadeInUp" *ngIf="theme.value==='dark-theme'" (click)='changeTheme(theme.value)'></i>
       <ng-template [ngIf]="(notifications$|async)?.length" [ngIfElse]="emptyNotifications">
-        <i class='pi pi-bell animate__animated animate__swing animate__delay-5s badge-info'
+        <i class='icon icon-bell2 animate__animated animate__swing animate__delay-5s badge-info'
            pBadge [value]="(notifications$|async)?.length.toString()" (click)="opNotification.toggle($event)"></i>
       </ng-template>
       <ng-template #emptyNotifications>
-        <i class='pi pi-bell' (click)="opNotification.toggle($event)"></i>
+        <i class='icon icon-bell2' (click)="opNotification.toggle($event)"></i>
       </ng-template>
       <p-overlayPanel #opNotification [appendTo]='toolbar'>
         <ng-template pTemplate>

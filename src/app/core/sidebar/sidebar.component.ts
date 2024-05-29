@@ -2,9 +2,14 @@ import { Component, OnInit, OnDestroy, ChangeDetectionStrategy, Injector } from 
 import { MenuItem } from 'primeng/api';
 import { environment } from '@env/environment';
 import { SidebarFacade } from '@core/sidebar/+state/sidebar.facade';
-import { BehaviorSubject, Subject, takeUntil } from 'rxjs';
+import {BehaviorSubject, Observable, Subject, takeUntil} from 'rxjs';
 import { Utility } from "@shared/services/utility";
 import { FeaturesConstant } from "@core/permission/features.constant";
+import {AppState} from "@core/core.state";
+import {select, Store} from "@ngrx/store";
+import {selectSidebar} from "@core/settings/settings.selectors";
+import { actionSettingsChangeSidebar } from '@core/settings/settings.actions';
+import {SideBarService} from "@core/sidebar/sidebar.service";
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -245,10 +250,13 @@ export class SidebarComponent extends Utility implements OnInit, OnDestroy {
   assetURL = environment.assetURL;
   sidebarItems$ = this._facade.sidebarItems$;
   destroy$ = new Subject();
+  show_sidebar$: Observable<boolean> = this.store.pipe(select(selectSidebar));
 
   constructor(
     private _facade: SidebarFacade,
-    injector: Injector
+    injector: Injector,
+    private store: Store<AppState>,
+    public sideBarService: SideBarService,
   ) {
     super(injector);
   }
@@ -282,6 +290,9 @@ export class SidebarComponent extends Utility implements OnInit, OnDestroy {
       this.router.navigate([`/dashboard/dynamic-dashboard/${this.selectedDashboard}`])
     }
 
+  }
+  openSidebar() {
+    this.store.dispatch(actionSettingsChangeSidebar({ show_sidebar: true }));
   }
 
 }

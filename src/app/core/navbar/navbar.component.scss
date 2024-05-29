@@ -1,37 +1,36 @@
-
 @mixin navbar() {
   .navbar {
-    height: auto;
+    height: 2.5rem;
     position: relative;
     //padding: 1rem 0;
     //position: relative;
     top: 0;
     box-shadow: var(--box-shadow-3);
     background: var(--main-primary-color);
-    z-index: 2;
+    z-index: 1103;
     &-logo {
       //margin-inline-end: 5rem;
-      width: 20rem;
+      width: 8rem;
       display: flex;
       justify-content: center;
       img {
-        height: 3.5rem;
+        height: 2rem;
       }
     }
     .p-toolbar {
       padding-inline-end: 3rem;
       height: 100%;
       &-group-right {
-        padding: .7rem 0;
+        padding: 0;
       }
       .toggle-menu {
-        font-size: 1.8rem;
+        font-size: 1.6rem;
         color: var(--contained-hover-bg-primary-color);
         background-color: var(--common-white);
         text-align: center;
         border-radius: 50%;
-        width: 2.6rem;
-        height: 2.6rem;
+        width: 1.6rem;
+        height: 1.6rem;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -45,9 +44,9 @@
           display: block;
         }
         &.active:before {
-            transform: rotate(180deg);
-            transition: var(--transition);
-            display: block;
+          transform: rotate(180deg);
+          transition: var(--transition);
+          display: block;
         }
       }
       .p-avatar {
@@ -57,7 +56,7 @@
       }
       i {
         cursor: pointer;
-        margin: 0 .8rem;
+        margin: 0 0.8rem;
         color: var(--common-white);
         font-size: 1.5rem;
         &.pi-bell {
@@ -73,10 +72,10 @@
         justify-content: center;
         align-items: center;
         cursor: pointer;
-        padding: .1rem .3rem;
-        border-radius: .3rem;
+        padding: 0.1rem 0.3rem;
+        border-radius: 0.3rem;
         .country {
-          margin-inline-end: .3rem;
+          margin-inline-end: 0.3rem;
         }
         &:hover {
           background: var(--action-hover-color);
@@ -91,13 +90,14 @@
         display: flex;
         align-items: center;
         cursor: pointer;
-        padding: .5rem;
-        border-radius: .3rem;
+        padding: 0.5rem;
+        border-radius: 0.3rem;
         .pi {
-          margin-inline-end: .5rem;
+          margin-inline-end: 0.5rem;
         }
-        &:last-child, &:last-child .icon {
-          color: var(--main-error-color)
+        &:last-child,
+        &:last-child .icon {
+          color: var(--main-error-color);
         }
         &:hover {
           background: var(--action-hover-color);
@@ -109,7 +109,7 @@
       max-height: 40rem;
       overflow-y: auto;
       &__item {
-        padding: .3rem;
+        padding: 0.3rem;
         overflow: hidden;
         text-overflow: ellipsis;
         display: -webkit-box;
@@ -122,12 +122,12 @@
         }
         &:nth-child(even) {
           background-color: var(--outlined-resting-bg-secondary-color);
-          border-radius: .3rem;
+          border-radius: 0.3rem;
         }
       }
     }
     .p-divider-horizontal {
-      margin: .3rem 0;
+      margin: 0.3rem 0;
     }
     .country {
       width: 1.8rem;
@@ -136,13 +136,10 @@
     }
     .change-language-input {
       background-color: var(--main-contrast-color);
-      .p-button {
-        color: var(--text-primary-light-mode) !important;
-      }
     }
   }
   .p-progressbar {
-    height: .3rem;
+    height: 0.3rem;
     position: absolute;
     bottom: 0;
     left: 0;

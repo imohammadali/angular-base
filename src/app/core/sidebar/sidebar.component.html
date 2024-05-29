@@ -1,4 +1,17 @@
-<div class='sidebar'>
-    <p-panelMenu [model]="sidebarItems$|async" [multiple]='true' [ngStyle]="{'padding-block-start': '2rem'}">
-    </p-panelMenu>
+<div class="sidebar">
+  <p-panelMenu
+    [model]="sidebarItems$ | async"
+    [multiple]="true"
+    (click)="openSidebar()"
+    [ngClass]="{
+        active: show_sidebar$ | async,
+        deactive: !(show_sidebar$ | async),
+      }"
+    [ngStyle]="{
+      'padding-block-start': (sideBarService.myDashboardsView$ | async)?.length
+        ? '0'
+        : '2rem'
+    }"
+  >
+  </p-panelMenu>
 </div>
