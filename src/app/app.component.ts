@@ -17,7 +17,6 @@ import {selectRtlDirection} from "@core/settings/settings.selectors";
 import {SidebarFacade} from "@core/sidebar/+state/sidebar.facade";
 import {TranslateService} from "@ngx-translate/core";
 import {distinctUntilChanged, take} from "rxjs/operators";
-import * as mapboxgl from 'mapbox-gl';
 import {environment} from "@env/environment";
 
 @Component({
@@ -101,10 +100,5 @@ export class AppComponent implements OnInit {
         this.renderer.addClass(document.body, 'ltr-theme')
       }
     })
-    mapboxgl.setRTLTextPlugin(
-      'https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-rtl-text/v0.2.3/mapbox-gl-rtl-text.js',
-      null,
-      false // Lazy load the plugin
-    );
   }
 }

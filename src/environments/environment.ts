@@ -17,10 +17,6 @@ export const environment = {
     app: packageJson.version,
     build: packageJson.build,
   },
-  mapbox: {
-    accessToken: 'pk.eyJ1IjoiYmFiYWtpciIsImEiOiJja28wZ28xeHUwZm1wMnFvYmlkdXFobXEwIn0.CeHCMjif1_QM1GqlYvgtZQ',
-    mapToken: 'pk.eyJ1IjoiaGVqYXppIiwiYSI6ImNsMzdwM2ljNjB5ZnYzbHJ1cDZrZzJlc3kifQ.pUeayzeMva54vrDo0GcwwA',
-  }
 };
 
 
